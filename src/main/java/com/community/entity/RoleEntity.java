@@ -1,49 +1,89 @@
 package com.community.entity;
 
-import lombok.Data;
+import java.util.Date;
 
-@Data
-public class RoleEntity {//角色表
-    private Integer id;//表id
-    private String role_name;//角色名称
-    private String create_time;//记录创建时间
-    private Integer create_who;//创建人
-    private String edit_time;//记录修改时间
-    private Integer edit_who;//修改人
-    private Integer isDelete;//是否已经删除（新增默认为0）
+public class RoleEntity {
+    private Integer id;
+
+    private String roleName;
+
+    private Date createTime;
+
+    private Integer createWho;
+
+    private Date editTime;
+
+    private Integer editWho;
+
+    private Integer isdelete;
+
+    public RoleEntity(Integer id, String roleName, Date createTime, Integer createWho, Date editTime, Integer editWho, Integer isdelete) {
+        this.id = id;
+        this.roleName = roleName;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.editTime = editTime;
+        this.editWho = editWho;
+        this.isdelete = isdelete;
+    }
 
     public RoleEntity() {
+        super();
     }
 
-    public RoleEntity(Integer id, String role_name, String create_time, Integer create_who, String edit_time, Integer edit_who, Integer isDelete) {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
         this.id = id;
-        this.role_name = role_name;
-        this.create_time = create_time;
-        this.create_who = create_who;
-        this.edit_time = edit_time;
-        this.edit_who = edit_who;
-        this.isDelete = isDelete;
     }
 
-    public RoleEntity(String role_name, String create_time, Integer create_who, String edit_time, Integer edit_who, Integer isDelete) {
-        this.role_name = role_name;
-        this.create_time = create_time;
-        this.create_who = create_who;
-        this.edit_time = edit_time;
-        this.edit_who = edit_who;
-        this.isDelete = isDelete;
+    public String getRoleName() {
+        return roleName;
     }
 
-    @Override
-    public String toString() {
-        return "RoleEntity{" +
-                "id=" + id +
-                ", role_name='" + role_name + '\'' +
-                ", create_time='" + create_time + '\'' +
-                ", create_who=" + create_who +
-                ", edit_time='" + edit_time + '\'' +
-                ", edit_who=" + edit_who +
-                ", isDelete=" + isDelete +
-                '}';
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getCreateWho() {
+        return createWho;
+    }
+
+    public void setCreateWho(Integer createWho) {
+        this.createWho = createWho;
+    }
+
+    public Date getEditTime() {
+        return editTime;
+    }
+
+    public void setEditTime(Date editTime) {
+        this.editTime = editTime;
+    }
+
+    public Integer getEditWho() {
+        return editWho;
+    }
+
+    public void setEditWho(Integer editWho) {
+        this.editWho = editWho;
+    }
+
+    public Integer getIsdelete() {
+        return isdelete;
+    }
+
+    public void setIsdelete(Integer isdelete) {
+        this.isdelete = isdelete;
     }
 }

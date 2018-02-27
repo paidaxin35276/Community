@@ -1,73 +1,144 @@
 package com.community.entity;
 
-import lombok.Data;
+import java.util.Date;
 
-@Data
-public class VisitorEntity {//访客
-    private Integer id;//访客编号
-    private String visitorname;//访客名称
-    private String nickname;//昵称
-    private String mobile;//手机
-    private String image;//访问者图片路径
-    private Integer visit_object;//访问对象
-    private String reason;//事由
-    private String visit_time_start;//访问时间开始
-    private String visit_time_end;//访问时间结束
-    private Integer type;//访客类别（1拜访业主、2搬家、3物业维修检查、0游客）
-    private String create_time;//记录创建时间
-    private Integer create_who;//创建人
-    private Integer isDelete;//是否已经删除（新增默认为0）
+public class VisitorEntity {
+    private Integer id;
 
-    public VisitorEntity() {
-    }
+    private String visitorname;
 
-    public VisitorEntity(String visitorname, String nickname, String mobile, String image, Integer visit_object, String reason, String visit_time_start, String visit_time_end, Integer type, String create_time, Integer create_who, Integer isDelete) {
-        this.visitorname = visitorname;
-        this.nickname = nickname;
-        this.mobile = mobile;
-        this.image = image;
-        this.visit_object = visit_object;
-        this.reason = reason;
-        this.visit_time_start = visit_time_start;
-        this.visit_time_end = visit_time_end;
-        this.type = type;
-        this.create_time = create_time;
-        this.create_who = create_who;
-        this.isDelete = isDelete;
-    }
+    private String nickname;
 
-    public VisitorEntity(Integer id, String visitorname, String nickname, String mobile, String image, Integer visit_object, String reason, String visit_time_start, String visit_time_end, Integer type, String create_time, Integer create_who, Integer isDelete) {
+    private String mobile;
+
+    private String image;
+
+    private Integer visitObject;
+
+    private String reason;
+
+    private Date visitTimeStart;
+
+    private Date visitTimeEnd;
+
+    private Integer type;
+
+    private Date createTime;
+
+    private Integer createWho;
+
+    public VisitorEntity(Integer id, String visitorname, String nickname, String mobile, String image, Integer visitObject, String reason, Date visitTimeStart, Date visitTimeEnd, Integer type, Date createTime, Integer createWho) {
         this.id = id;
         this.visitorname = visitorname;
         this.nickname = nickname;
         this.mobile = mobile;
         this.image = image;
-        this.visit_object = visit_object;
+        this.visitObject = visitObject;
         this.reason = reason;
-        this.visit_time_start = visit_time_start;
-        this.visit_time_end = visit_time_end;
+        this.visitTimeStart = visitTimeStart;
+        this.visitTimeEnd = visitTimeEnd;
         this.type = type;
-        this.create_time = create_time;
-        this.create_who = create_who;
-        this.isDelete = isDelete;
+        this.createTime = createTime;
+        this.createWho = createWho;
     }
 
-    @Override
-    public String toString() {
-        return "VisitorEntity{" +
-                "id=" + id +
-                ", visitorname='" + visitorname + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", image='" + image + '\'' +
-                ", visit_object=" + visit_object +
-                ", reason='" + reason + '\'' +
-                ", visit_time_start='" + visit_time_start + '\'' +
-                ", visit_time_end='" + visit_time_end + '\'' +
-                ", type=" + type +
-                ", create_time='" + create_time + '\'' +
-                ", create_who=" + create_who +
-                ", isDelete=" + isDelete +
-                '}';
+    public VisitorEntity() {
+        super();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getVisitorname() {
+        return visitorname;
+    }
+
+    public void setVisitorname(String visitorname) {
+        this.visitorname = visitorname;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Integer getVisitObject() {
+        return visitObject;
+    }
+
+    public void setVisitObject(Integer visitObject) {
+        this.visitObject = visitObject;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public Date getVisitTimeStart() {
+        return visitTimeStart;
+    }
+
+    public void setVisitTimeStart(Date visitTimeStart) {
+        this.visitTimeStart = visitTimeStart;
+    }
+
+    public Date getVisitTimeEnd() {
+        return visitTimeEnd;
+    }
+
+    public void setVisitTimeEnd(Date visitTimeEnd) {
+        this.visitTimeEnd = visitTimeEnd;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getCreateWho() {
+        return createWho;
+    }
+
+    public void setCreateWho(Integer createWho) {
+        this.createWho = createWho;
     }
 }

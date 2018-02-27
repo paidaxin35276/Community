@@ -1,53 +1,100 @@
 package com.community.entity;
 
-import lombok.Data;
+import java.util.Date;
 
-@Data
-public class PermissionEntity {//权限
-    private Integer id;//表id
-    private String name;//权限说明
-    private String function;//访问链接/功能
-    private String create_time;//记录创建时间
-    private Integer create_who;//创建人
-    private String edit_time;//记录修改时间
-    private Integer edit_who;//修改人
-    private Integer isDelete;//是否已经删除（新增默认为0）
+public class PermissionEntity {
+    private Integer id;
 
-    @Override
-    public String toString() {
-        return "PermissionEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", function='" + function + '\'' +
-                ", create_time='" + create_time + '\'' +
-                ", create_who=" + create_who +
-                ", edit_time='" + edit_time + '\'' +
-                ", edit_who=" + edit_who +
-                ", isDelete=" + isDelete +
-                '}';
-    }
+    private String name;
 
-    public PermissionEntity() {
-    }
+    private String function;
 
-    public PermissionEntity(String name, String function, String create_time, Integer create_who, String edit_time, Integer edit_who, Integer isDelete) {
-        this.name = name;
-        this.function = function;
-        this.create_time = create_time;
-        this.create_who = create_who;
-        this.edit_time = edit_time;
-        this.edit_who = edit_who;
-        this.isDelete = isDelete;
-    }
+    private Date createTime;
 
-    public PermissionEntity(Integer id, String name, String function, String create_time, Integer create_who, String edit_time, Integer edit_who, Integer isDelete) {
+    private Integer createWho;
+
+    private Date editTime;
+
+    private Integer editWho;
+
+    private Integer isdelete;
+
+    public PermissionEntity(Integer id, String name, String function, Date createTime, Integer createWho, Date editTime, Integer editWho, Integer isdelete) {
         this.id = id;
         this.name = name;
         this.function = function;
-        this.create_time = create_time;
-        this.create_who = create_who;
-        this.edit_time = edit_time;
-        this.edit_who = edit_who;
-        this.isDelete = isDelete;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.editTime = editTime;
+        this.editWho = editWho;
+        this.isdelete = isdelete;
+    }
+
+    public PermissionEntity() {
+        super();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFunction() {
+        return function;
+    }
+
+    public void setFunction(String function) {
+        this.function = function;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getCreateWho() {
+        return createWho;
+    }
+
+    public void setCreateWho(Integer createWho) {
+        this.createWho = createWho;
+    }
+
+    public Date getEditTime() {
+        return editTime;
+    }
+
+    public void setEditTime(Date editTime) {
+        this.editTime = editTime;
+    }
+
+    public Integer getEditWho() {
+        return editWho;
+    }
+
+    public void setEditWho(Integer editWho) {
+        this.editWho = editWho;
+    }
+
+    public Integer getIsdelete() {
+        return isdelete;
+    }
+
+    public void setIsdelete(Integer isdelete) {
+        this.isdelete = isdelete;
     }
 }

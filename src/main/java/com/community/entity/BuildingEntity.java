@@ -1,45 +1,78 @@
 package com.community.entity;
 
-import lombok.Data;
+import java.util.Date;
 
-@Data
-public class BuildingEntity {//房产
-    private Integer id;//表id
-    private String building_no;//房产编号
-    private Integer type;//房产状态（使用、装修、出售、租赁）
-    private String create_time;//创建时间
-    private Integer create_who;//创建人
-    private Integer isDelete;//是否已经删除（新增默认为0）
+public class BuildingEntity {
+    private Integer id;
+
+    private String buildingNo;
+
+    private Integer type;
+
+    private Date createTime;
+
+    private Integer createWho;
+
+    private Integer isdelete;
+
+    public BuildingEntity(Integer id, String buildingNo, Integer type, Date createTime, Integer createWho, Integer isdelete) {
+        this.id = id;
+        this.buildingNo = buildingNo;
+        this.type = type;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.isdelete = isdelete;
+    }
 
     public BuildingEntity() {
+        super();
     }
 
-    public BuildingEntity(String building_no, Integer type, String create_time, Integer create_who, Integer isDelete) {
-        this.building_no = building_no;
-        this.type = type;
-        this.create_time = create_time;
-        this.create_who = create_who;
-        this.isDelete = isDelete;
+    public Integer getId() {
+        return id;
     }
 
-    public BuildingEntity(Integer id, String building_no, Integer type, String create_time, Integer create_who, Integer isDelete) {
+    public void setId(Integer id) {
         this.id = id;
-        this.building_no = building_no;
-        this.type = type;
-        this.create_time = create_time;
-        this.create_who = create_who;
-        this.isDelete = isDelete;
     }
 
-    @Override
-    public String toString() {
-        return "BuildingEntity{" +
-                "id=" + id +
-                ", building_no='" + building_no + '\'' +
-                ", type=" + type +
-                ", create_time='" + create_time + '\'' +
-                ", create_who=" + create_who +
-                ", isDelete=" + isDelete +
-                '}';
+    public String getBuildingNo() {
+        return buildingNo;
+    }
+
+    public void setBuildingNo(String buildingNo) {
+        this.buildingNo = buildingNo;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getCreateWho() {
+        return createWho;
+    }
+
+    public void setCreateWho(Integer createWho) {
+        this.createWho = createWho;
+    }
+
+    public Integer getIsdelete() {
+        return isdelete;
+    }
+
+    public void setIsdelete(Integer isdelete) {
+        this.isdelete = isdelete;
     }
 }

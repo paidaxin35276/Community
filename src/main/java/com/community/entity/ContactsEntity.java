@@ -1,50 +1,89 @@
 package com.community.entity;
 
-import lombok.Data;
+import java.util.Date;
 
-@Data
-public class ContactsEntity {//联系人
-    private Integer id;//表id
-    private String contactname;//联系人姓名
-    private String mobile;//联系人手机
-    private String position;//职位
-    private String create_time;//创建时间
-    private String edit_time;//编辑时间
-    private Integer isDelete;//是否已经删除（新增默认为0）
+public class ContactsEntity {
+    private Integer id;
 
+    private String contactname;
 
-    public ContactsEntity() {
-    }
+    private String mobile;
 
-    public ContactsEntity(String contactname, String mobile, String position, String create_time, String edit_time, Integer isDelete) {
-        this.contactname = contactname;
-        this.mobile = mobile;
-        this.position = position;
-        this.create_time = create_time;
-        this.edit_time = edit_time;
-        this.isDelete = isDelete;
-    }
+    private String position;
 
-    public ContactsEntity(Integer id, String contactname, String mobile, String position, String create_time, String edit_time, Integer isDelete) {
+    private Date createTime;
+
+    private Date editTime;
+
+    private Integer isdelete;
+
+    public ContactsEntity(Integer id, String contactname, String mobile, String position, Date createTime, Date editTime, Integer isdelete) {
         this.id = id;
         this.contactname = contactname;
         this.mobile = mobile;
         this.position = position;
-        this.create_time = create_time;
-        this.edit_time = edit_time;
-        this.isDelete = isDelete;
+        this.createTime = createTime;
+        this.editTime = editTime;
+        this.isdelete = isdelete;
     }
 
-    @Override
-    public String toString() {
-        return "ContactsEntity{" +
-                "id=" + id +
-                ", contactname='" + contactname + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", position='" + position + '\'' +
-                ", create_time='" + create_time + '\'' +
-                ", edit_time='" + edit_time + '\'' +
-                ", isDelete=" + isDelete +
-                '}';
+    public ContactsEntity() {
+        super();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getContactname() {
+        return contactname;
+    }
+
+    public void setContactname(String contactname) {
+        this.contactname = contactname;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getEditTime() {
+        return editTime;
+    }
+
+    public void setEditTime(Date editTime) {
+        this.editTime = editTime;
+    }
+
+    public Integer getIsdelete() {
+        return isdelete;
+    }
+
+    public void setIsdelete(Integer isdelete) {
+        this.isdelete = isdelete;
     }
 }
