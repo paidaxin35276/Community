@@ -3,10 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <settings>
-        <setting name="logImpl" value="LOG4J2"/>
-    </settings>
-    <environments default="development">
+
+    <!--当mybatis交给sring去管理的时候 以下的链接信息 以及映射都需要配置了 全都由spring去管理以及配置-->
+    <!--<environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
@@ -17,10 +16,9 @@
             </dataSource>
         </environment>
     </environments>
-
     <mappers>
-        <!--mybatis 方法都封装在xml文件中 所以 需要映射xml文件调用-->
-        <mapper resource="com/paidaxin/entity/*.xml"/>
-    </mappers>
+        &lt;!&ndash;mybatis 方法都封装在xml文件中 所以 需要映射xml文件调用&ndash;&gt;
+        <mapper resource="com/community/entity/MypaidaxinlEntityMapper.xml"/>
+    </mappers>-->
 
 </configuration>

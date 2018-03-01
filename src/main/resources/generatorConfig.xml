@@ -43,8 +43,8 @@
         </javaModelGenerator>
 
         <!-- 02 指定sql映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="com.community.entity"
-                         targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="Mapper"
+                         targetProject="src/main/resources">
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
@@ -154,6 +154,11 @@
                enableSelectByExample="false" enableUpdateByExample="false">
         </table>
         <table schema="" tableName="work_log" domainObjectName="Work_logEntity"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
+        </table>
+
+        <table schema="" tableName="mypaidaxin" domainObjectName="MypaidaxinlEntity"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
         </table>
