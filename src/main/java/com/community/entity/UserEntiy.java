@@ -15,6 +15,8 @@ public class UserEntiy {
 
     private String idcard;
 
+
+
     private String birthday;
 
     private String address;
