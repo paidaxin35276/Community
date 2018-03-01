@@ -32,8 +32,12 @@
         <property name="mapperInterface" value="com.zking.dao.PersonDao"></property>
     </bean>-->
 
-    <bean id="scannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.community.dao"></property>
+    <!--<bean id="scannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.community.dao"></property>-->
+    <!--</bean>-->
+    <bean id="mypaidaxinlEntityDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+        <property name="mapperInterface" value="com.community.dao.MypaidaxinlEntityMapper"></property>
     </bean>
 
 

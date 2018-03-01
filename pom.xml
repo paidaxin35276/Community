@@ -83,11 +83,11 @@
         </dependency>
 
         <!--&lt;!&ndash;导入 spring对于jdbc的支持&ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework</groupId>-->
-            <!--<artifactId>spring-jdbc</artifactId>-->
-            <!--<version>4.3.11.RELEASE</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.3.11.RELEASE</version>
+        </dependency>
 
         <!-- spring 导入c3p0数据连接池 -->
         <dependency>
