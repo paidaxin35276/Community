@@ -31,6 +31,7 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--ssm 整合第一步：首先整合mybatis 导入mybatis 和mysql的依赖-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
@@ -60,6 +61,7 @@
             <artifactId>log4j-api</artifactId>
             <version>2.9.1</version>
         </dependency>
+
         <!--web工程需要包含log4j-web，非web工程不需要-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -67,13 +69,27 @@
             <version>2.9.1</version>
         </dependency>
 
+        <!--ssm整合第二步：整合spring 把mybatis交给spring 去管理 利用c3p0数据连接池进行数据连接-->
+        <!-- spring 导入c3p0数据连接池 -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.1</version>
+        </dependency>
 
-        <!-- 导入spring的依赖 -->
+        <!--导入 spring对于jdbc的支持-->
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <artifactId>spring-jdbc</artifactId>
             <version>4.3.11.RELEASE</version>
         </dependency>
+
+        <!-- 导入spring的依赖 里面自带核心依赖 core-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-context</artifactId>-->
+            <!--<version>4.3.11.RELEASE</version>-->
+        <!--</dependency>-->
 
         <!--导入spring - mybatis 的依赖-->
         <dependency>
@@ -82,18 +98,20 @@
             <version>1.3.1</version>
         </dependency>
 
-        <!--&lt;!&ndash;导入 spring对于jdbc的支持&ndash;&gt;-->
+
+        <!--ssm整合第三步 导入spring mvc 和servlet 的依赖 并进行相关配置-->
+        <!--导入spring web mvc的依赖 应为这个依赖自带spring-context 和spring core核心依赖 所以上面的 spring-context依赖可以删除-->
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
+            <artifactId>spring-webmvc</artifactId>
             <version>4.3.11.RELEASE</version>
         </dependency>
 
-        <!-- spring 导入c3p0数据连接池 -->
         <dependency>
-            <groupId>com.mchange</groupId>
-            <artifactId>c3p0</artifactId>
-            <version>0.9.5.1</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.0</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
@@ -107,6 +125,7 @@
                     <include>**/*.xml</include>
                 </includes>
             </resource>
+
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>

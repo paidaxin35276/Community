@@ -11,6 +11,6 @@ public class TestSpring {
     public void test(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         MypaidaxinlEntityMapper mypaidaxinlEntityMapper = (MypaidaxinlEntityMapper) applicationContext.getBean("mypaidaxinlEntityMapper");
-        mypaidaxinlEntityMapper.insert(new MypaidaxinlEntity(2,"派大星","男"));
+        mypaidaxinlEntityMapper.insert(new MypaidaxinlEntity(3,"派大星","男"));
     }
 }
