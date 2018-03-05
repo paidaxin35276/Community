@@ -7,11 +7,11 @@ public class AttendanceEntity {
 
     private Integer userId;
 
-    private String amAttendance;
+    private Date amAttendance;
 
-    private String pmAttendance;
+    private Date pmAttendance;
 
-    private Date times;
+    private Integer times;
 
     private String marks;
 
@@ -23,7 +23,7 @@ public class AttendanceEntity {
 
     private Integer isdelete;
 
-    public AttendanceEntity(Integer id, Integer userId, String amAttendance, String pmAttendance, Date times, String marks, Integer status, Date createTime, Date editTime, Integer isdelete) {
+    public AttendanceEntity(Integer id, Integer userId, Date amAttendance, Date pmAttendance, Integer times, String marks, Integer status, Date createTime, Date editTime, Integer isdelete) {
         this.id = id;
         this.userId = userId;
         this.amAttendance = amAttendance;
@@ -56,27 +56,27 @@ public class AttendanceEntity {
         this.userId = userId;
     }
 
-    public String getAmAttendance() {
+    public Date getAmAttendance() {
         return amAttendance;
     }
 
-    public void setAmAttendance(String amAttendance) {
+    public void setAmAttendance(Date amAttendance) {
         this.amAttendance = amAttendance;
     }
 
-    public String getPmAttendance() {
+    public Date getPmAttendance() {
         return pmAttendance;
     }
 
-    public void setPmAttendance(String pmAttendance) {
+    public void setPmAttendance(Date pmAttendance) {
         this.pmAttendance = pmAttendance;
     }
 
-    public Date getTimes() {
+    public Integer getTimes() {
         return times;
     }
 
-    public void setTimes(Date times) {
+    public void setTimes(Integer times) {
         this.times = times;
     }
 

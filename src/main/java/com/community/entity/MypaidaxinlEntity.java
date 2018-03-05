@@ -1,13 +1,6 @@
 package com.community.entity;
 
-import com.community.dao.MypaidaxinlEntityMapper;
-import org.apache.ibatis.session.SqlSessionFactory;
-
 public class MypaidaxinlEntity {
-
-    private MypaidaxinlEntityMapper mypaidaxinlEntityMapper;
-    private SqlSessionFactory sqlSessionFactory;
-
     private Integer id;
 
     private String name;

@@ -5,7 +5,7 @@ import java.util.Date;
 public class Engineer_orderEntity {
     private Integer id;
 
-    private Integer fromId;
+    private Integer formId;
 
     private Integer equipmentId;
 
@@ -25,9 +25,9 @@ public class Engineer_orderEntity {
 
     private Integer isdelete;
 
-    public Engineer_orderEntity(Integer id, Integer fromId, Integer equipmentId, String orderContent, String dealContent, Date createTime, Integer createWho, Date dealTime, Integer dealWho, Integer status, Integer isdelete) {
+    public Engineer_orderEntity(Integer id, Integer formId, Integer equipmentId, String orderContent, String dealContent, Date createTime, Integer createWho, Date dealTime, Integer dealWho, Integer status, Integer isdelete) {
         this.id = id;
-        this.fromId = fromId;
+        this.formId = formId;
         this.equipmentId = equipmentId;
         this.orderContent = orderContent;
         this.dealContent = dealContent;
@@ -51,12 +51,12 @@ public class Engineer_orderEntity {
         this.id = id;
     }
 
-    public Integer getFromId() {
-        return fromId;
+    public Integer getFormId() {
+        return formId;
     }
 
-    public void setFromId(Integer fromId) {
-        this.fromId = fromId;
+    public void setFormId(Integer formId) {
+        this.formId = formId;
     }
 
     public Integer getEquipmentId() {

@@ -64,15 +64,6 @@
         <!-- tableName为对应的数据库表 -->
         <!-- domainObjectName是要生成的实体类 -->
         <!-- enable*ByExample是否生成 example类 -->
-        <!--<table schema="" tableName="t_book" domainObjectName="Book"-->
-        <!--enableCountByExample="false" enableDeleteByExample="false"-->
-        <!--enableSelectByExample="false" enableUpdateByExample="false">-->
-        <!--&lt;!&ndash; 忽略列，不生成bean 字段 &ndash;&gt;-->
-        <!--&lt;!&ndash; <ignoreColumn column="FRED" /> &ndash;&gt;-->
-        <!--&lt;!&ndash; 指定列的java数据类型 &ndash;&gt;-->
-        <!--&lt;!&ndash; <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> &ndash;&gt;-->
-        <!--</table>-->
-
         <table schema="" tableName="attendance" domainObjectName="AttendanceEntity"
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
@@ -162,7 +153,14 @@
                enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false">
         </table>
-
+        <table schema="" tableName="deptment" domainObjectName="DeptmentEntity"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
+        </table>
+        <table schema="" tableName="parking_space" domainObjectName="Parking_spaceEntity"
+               enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
+        </table>
 
     </context>
 </generatorConfiguration>

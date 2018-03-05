@@ -13,14 +13,17 @@ public class Moring_readingEntity {
 
     private Date createTime;
 
+    private Date editTime;
+
     private Integer isdelete;
 
-    public Moring_readingEntity(Integer id, Integer userId, Date readingTime, String readingContent, Date createTime, Integer isdelete) {
+    public Moring_readingEntity(Integer id, Integer userId, Date readingTime, String readingContent, Date createTime, Date editTime, Integer isdelete) {
         this.id = id;
         this.userId = userId;
         this.readingTime = readingTime;
         this.readingContent = readingContent;
         this.createTime = createTime;
+        this.editTime = editTime;
         this.isdelete = isdelete;
     }
 
@@ -66,6 +69,14 @@ public class Moring_readingEntity {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Date getEditTime() {
+        return editTime;
+    }
+
+    public void setEditTime(Date editTime) {
+        this.editTime = editTime;
     }
 
     public Integer getIsdelete() {

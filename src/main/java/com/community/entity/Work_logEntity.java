@@ -7,7 +7,7 @@ public class Work_logEntity {
 
     private Integer userId;
 
-    private Date workDate;
+    private String workDate;
 
     private String workLoh;
 
@@ -17,7 +17,7 @@ public class Work_logEntity {
 
     private Integer isdelete;
 
-    public Work_logEntity(Integer id, Integer userId, Date workDate, String workLoh, Date createTime, Date editTime, Integer isdelete) {
+    public Work_logEntity(Integer id, Integer userId, String workDate, String workLoh, Date createTime, Date editTime, Integer isdelete) {
         this.id = id;
         this.userId = userId;
         this.workDate = workDate;
@@ -47,11 +47,11 @@ public class Work_logEntity {
         this.userId = userId;
     }
 
-    public Date getWorkDate() {
+    public String getWorkDate() {
         return workDate;
     }
 
-    public void setWorkDate(Date workDate) {
+    public void setWorkDate(String workDate) {
         this.workDate = workDate;
     }
 

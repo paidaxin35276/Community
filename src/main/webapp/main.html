@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap 101 Template</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style>
+.text {
+	line-height: 60px;
+}
+
+li {
+	list-style-type: none;
+}
+</style>
+
+</head>
+
+<body>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<div class="row">
+		<div class="col-sm-12 col-md-12"
+			style="background: #11538c; height: 60px;">
+			<span style="margin-left: 540px; font-size: 22px; color: #d1d6d8;"
+				class="text">长沙金茂悦精品豪华酒店		
+		</div>
+		<div class="col-sm-12 col-md-12"
+			style="background: #11538c; height: 60px;">
+			<span style="margin-left: 800px; font-size: 16px; color: #d1d6d8;"
+				class="text" id="user">
+			</span>
+				
+		</div>
+		
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2 co-md-2"
+			style="background: #d1d6d8; height: 700px;">
+			<div class="panel-group" id="accordion" role="tablist"
+				aria-multiselectable="true" style="color: #5BC0DE;"></div>
+		</div>
+		<!-- 标签页 -->
+		<div class="col-sm-10 co-md-10"
+			style="background: #f6f7f7; height: 700px;">
+			<div>
+				<ul class="nav nav-tabs" id="tab_content" role="tablist">
+					<li role="presentation" class="active"><a href="#home"
+						aria-controls="home" role="button" data-toggle="tab">首页 <span
+							class="glyphicon glyphicon-remove tab_close"></span>
+					</a></li>
+
+				</ul>
+
+				<div class="tab-content" id="panel_content">
+					<div role="tabpanel" class="tab-pane active" id="home">
+						<iframe src="echarts_wage.html"style="height: 550px; width: 99%"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+</body>
+<script>
+	$(function() {
+		  //获取角色名
+		  var http="";
+		  $.ajax({
+				url : '/getUser.action',
+				method : 'get',
+				dataType : 'JSON',
+				success : function(data) {
+					console.log(data);
+					http = "——欢迎"+data.uname+"进入管理系统";
+					console.log(http);
+					$("#user").html(http);
+				}
+			});
+		  
+		  
+			
+		 	//权限
+			 $.ajax({
+				url:'/getpower.action',
+				method:'get',
+				dataType:'JSON',
+				success:function(data){
+					var html = "";
+					$.each(data,function(fid,objectOne){//所有的数据
+						if(objectOne.isParent){//如果他父标签
+							html+="<div class='panel panel-default'>";
+							html+="<div class='panel-heading' role='tab' id='headingOne'>";
+							html+="<h4 class='panel-title'>";
+							html+="<a role='button' data-toggle='collapse' data-parent='#accordion' href='#"+fid+"' aria-controls='collapseOne'  style='color: #11538c; font-size: 14px;'>";
+							html+=objectOne.pname;
+						    html+="</a></h4></div> ";  
+						    html+="<div id='"+fid+"' class='panel-collapse collapse ' role='tabpanel' aria-labelledby='headingOne'>";
+					    	html+="<div class='panel-body' style='color:  #2AABD2; font-size: 12px;'>";
+					    	html+="<nav class='nav nav-pills nav-stacked'>";
+					    	html+="<li>";
+						    $.each(data,function(cid,objectTwo){
+						    	if(objectOne.id==objectTwo.pid){
+							    	html+="<a role='button' class='custom2'>"+objectTwo.pname+"</a>";	
+						    	}
+						    })
+						    html+="</li></nav></div></div>";
+						    html+="</div>";
+						}
+					});
+ 					$("#accordion").html(html);
+ 					
+
+ 					$(".custom2").click(function(){
+ 						var name=$(this).text();//当前点击所选中的文字
+ 						var nodes=$("#tab_content").children();//标签页所有的子节点
+ 						var contentTab=$("#panel_content").children();//所有的面板
+ 						var isFlag=false;
+ 						console.log("name");
+ 						console.log(name);
+ 						console.log("nodes");
+ 						console.log(nodes);
+ 						console.log("contentTab");
+ 						console.log(contentTab);
+ 						
+ 						$.each(contentTab, function(i,o) {//遍历面板
+ 							$(o).removeClass("active")//移除默认选中的面板
+ 							
+ 						}); 
+ 						
+ 					 	$.each(nodes, function(index,object) {//遍历标签所有的子节点
+ 							$(object).removeClass("active");//移除默认选中的Tab
+ 							var　text=$(object).text();//得到标签类的内容
+ 							if(text==name){//如果点击的页面已经被打开
+ 								isFlag=true;//已经打开   
+ 								$(object).tab('show');//选中打开的页面
+ 								$("#"+text).addClass("active")//设置选中的tab为优先
+ 								return;
+ 							}					
+ 						}); 
+ 						
+ 						
+ 					 	$.each(data,function(i,objects){
+ 					 		if(name==objects.pname){
+		 						if(!isFlag){//判断是否打开界面窗口
+		 							isFlag=true;//已经打开   
+		 							var tab_html = "<li role=\"presentation\"><a href=\"#"+name+"\" aria-controls=\""+name+"\" role=\"tab\" data-toggle=\"tab\">"+name+"<span class=\"glyphicon glyphicon-remove tab_close\" ></span></a></li>";
+		 							var panel_html="<div role=\"tabpanel\" class=\"tab-pane\" id=\""+name+"\"><iframe src='"+objects.power_url+"'style='height: 650px; width: 99%'></iframe></div>";
+		 							$("#tab_content").append(tab_html);//追加html
+		 							$("#panel_content").append(panel_html);
+		 							$(".tab_close").click(function(){
+		 								var parent=$(this).parent();//得到当前点击的元素的父类
+		 								console.log(parent);
+		 								parent.remove();//移除得到的父元素
+		 								var  targetId=parent.attr("href");//得到父元素的ref标签
+		 								var tabContext=$(targetId);//得到对应的面板
+		 								console.log(tabContext);
+		 								tabContext.remove();
+		 							})
+		 						}
+ 					 		}
+ 						}) ;
+ 					 	
+ 					 	$.each(nodes, function(index,object) {//遍历标签所有的子节点
+ 							$(object).removeClass("active");//移除默认选中的Tab
+ 							var　text=$(object).text();//得到标签类的内容
+ 							if(text==name){//如果点击的页面已经被打开
+ 								isFlag=true;//已经打开   
+ 								$(object).tab('show');//选中打开的页面
+ 								$("#"+text).addClass("active")//设置选中的tab为优先
+ 								return;
+ 							}					
+ 						}); 
+ 						
+ 					})
+				}
+			 			      
+			});  
+			
+			
+			
+			//关闭tabf
+			$(".tab_close").click(function(){
+				var parent=$(this).parent();//得到当前点击的元素的父类
+				console.log(parent);
+				parent.remove();//移除得到的父元素
+				var  targetId=parent.attr("href");//得到父元素的ref标签
+				var tabContext=$(targetId);//得到对应的面板
+				console.log(tabContext);
+				tabContext.remove();
+			})
+			
+			
+			
+		})
+		
+		
+	</script>
+
+</html>
