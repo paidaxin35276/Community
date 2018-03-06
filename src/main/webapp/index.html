@@ -87,16 +87,9 @@
             var tabContext = $(targetId);//得到对应的面板
             console.log(tabContext);
             tabContext.remove();
-        })
-        $.ajax({
-            url: '/getMenu.action',
-            method: 'post',
-            data: "JSON",
-            success: function (data) {
+        });
 
-            }
-        })
-    })
+    }
 </script>
 
 </html>
