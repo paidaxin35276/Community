@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.community.dao.Parking_spaceEntityMapper">
+  <resultMap id="BaseResultMap" type="com.community.entity.Parking_spaceEntity">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="license_plate" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="image" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="create_who" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="edit_time" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="edit_who" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="status" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <resultMap id="Parking_space" type="com.community.entity.Parking_spaceEntity">
+      <id column="id" javaType="java.lang.Integer" property="id" />
+      <result column="license_plate" javaType="java.lang.Integer" property="license_plate" />
+      <result column="image" javaType="java.lang.String" property="image" />
+      <result column="create_time" javaType="java.util.Date" property="create_time" />
+      <result column="create_who" javaType="java.lang.Integer" property="create_who" />
+      <result column="edit_time" javaType="java.util.Date" property="edit_time" />
+      <result column="edit_who" javaType="java.lang.Integer" property="edit_who" />
+      <result column="status" javaType="java.lang.Integer" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, license_plate, image, create_time, create_who, edit_time, edit_who, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from parking_space
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from parking_space
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.community.entity.Parking_spaceEntity">
+    insert into parking_space (id, license_plate, image, 
+      create_time, create_who, edit_time, 
+      edit_who, status)
+    values (#{id,jdbcType=INTEGER}, #{licensePlate,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=DATE}, #{createWho,jdbcType=INTEGER}, #{editTime,jdbcType=DATE}, 
+      #{editWho,jdbcType=INTEGER}, #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.community.entity.Parking_spaceEntity">
+    insert into parking_space
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="licensePlate != null">
+        license_plate,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createWho != null">
+        create_who,
+      </if>
+      <if test="editTime != null">
+        edit_time,
+      </if>
+      <if test="editWho != null">
+        edit_who,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="licensePlate != null">
+        #{licensePlate,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="createWho != null">
+        #{createWho,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        #{editTime,jdbcType=DATE},
+      </if>
+      <if test="editWho != null">
+        #{editWho,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.community.entity.Parking_spaceEntity">
+    update parking_space
+    <set>
+      <if test="licensePlate != null">
+        license_plate = #{licensePlate,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="createWho != null">
+        create_who = #{createWho,jdbcType=INTEGER},
+      </if>
+      <if test="editTime != null">
+        edit_time = #{editTime,jdbcType=DATE},
+      </if>
+      <if test="editWho != null">
+        edit_who = #{editWho,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.community.entity.Parking_spaceEntity">
+    update parking_space
+    set license_plate = #{licensePlate,jdbcType=INTEGER},
+      image = #{image,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=DATE},
+      create_who = #{createWho,jdbcType=INTEGER},
+      edit_time = #{editTime,jdbcType=DATE},
+      edit_who = #{editWho,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
