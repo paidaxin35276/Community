@@ -17,34 +17,15 @@ public class VisitorEntity {
 
     private String reason;
 
-    private Date visitTimeStart;
+    private String visitTimeStart;
 
-    private Date visitTimeEnd;
+    private String visitTimeEnd;
 
     private Integer type;
 
-    private Date createTime;
+    private String createTime;
 
     private Integer createWho;
-
-    public VisitorEntity(Integer id, String visitorname, String nickname, String mobile, String image, Integer visitObject, String reason, Date visitTimeStart, Date visitTimeEnd, Integer type, Date createTime, Integer createWho) {
-        this.id = id;
-        this.visitorname = visitorname;
-        this.nickname = nickname;
-        this.mobile = mobile;
-        this.image = image;
-        this.visitObject = visitObject;
-        this.reason = reason;
-        this.visitTimeStart = visitTimeStart;
-        this.visitTimeEnd = visitTimeEnd;
-        this.type = type;
-        this.createTime = createTime;
-        this.createWho = createWho;
-    }
-
-    public VisitorEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -102,19 +83,19 @@ public class VisitorEntity {
         this.reason = reason;
     }
 
-    public Date getVisitTimeStart() {
+    public String getVisitTimeStart() {
         return visitTimeStart;
     }
 
-    public void setVisitTimeStart(Date visitTimeStart) {
+    public void setVisitTimeStart(String visitTimeStart) {
         this.visitTimeStart = visitTimeStart;
     }
 
-    public Date getVisitTimeEnd() {
+    public String getVisitTimeEnd() {
         return visitTimeEnd;
     }
 
-    public void setVisitTimeEnd(Date visitTimeEnd) {
+    public void setVisitTimeEnd(String visitTimeEnd) {
         this.visitTimeEnd = visitTimeEnd;
     }
 
@@ -126,11 +107,11 @@ public class VisitorEntity {
         this.type = type;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -140,5 +121,55 @@ public class VisitorEntity {
 
     public void setCreateWho(Integer createWho) {
         this.createWho = createWho;
+    }
+
+    public VisitorEntity() {
+    }
+
+    public VisitorEntity(String visitorname, String nickname, String mobile, String image, Integer visitObject, String reason, String visitTimeStart, String visitTimeEnd, Integer type, String createTime, Integer createWho) {
+        this.visitorname = visitorname;
+        this.nickname = nickname;
+        this.mobile = mobile;
+        this.image = image;
+        this.visitObject = visitObject;
+        this.reason = reason;
+        this.visitTimeStart = visitTimeStart;
+        this.visitTimeEnd = visitTimeEnd;
+        this.type = type;
+        this.createTime = createTime;
+        this.createWho = createWho;
+    }
+
+    public VisitorEntity(Integer id, String visitorname, String nickname, String mobile, String image, Integer visitObject, String reason, String visitTimeStart, String visitTimeEnd, Integer type, String createTime, Integer createWho) {
+        this.id = id;
+        this.visitorname = visitorname;
+        this.nickname = nickname;
+        this.mobile = mobile;
+        this.image = image;
+        this.visitObject = visitObject;
+        this.reason = reason;
+        this.visitTimeStart = visitTimeStart;
+        this.visitTimeEnd = visitTimeEnd;
+        this.type = type;
+        this.createTime = createTime;
+        this.createWho = createWho;
+    }
+
+    @Override
+    public String toString() {
+        return "VisitorEntity{" +
+                "id=" + id +
+                ", visitorname='" + visitorname + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", image='" + image + '\'' +
+                ", visitObject=" + visitObject +
+                ", reason='" + reason + '\'' +
+                ", visitTimeStart='" + visitTimeStart + '\'' +
+                ", visitTimeEnd='" + visitTimeEnd + '\'' +
+                ", type=" + type +
+                ", createTime='" + createTime + '\'' +
+                ", createWho=" + createWho +
+                '}';
     }
 }

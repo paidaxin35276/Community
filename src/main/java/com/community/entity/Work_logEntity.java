@@ -11,25 +11,11 @@ public class Work_logEntity {
 
     private String workLoh;
 
-    private Date createTime;
+    private String createTime;
 
-    private Date editTime;
+    private String editTime;
 
     private Integer isdelete;
-
-    public Work_logEntity(Integer id, Integer userId, String workDate, String workLoh, Date createTime, Date editTime, Integer isdelete) {
-        this.id = id;
-        this.userId = userId;
-        this.workDate = workDate;
-        this.workLoh = workLoh;
-        this.createTime = createTime;
-        this.editTime = editTime;
-        this.isdelete = isdelete;
-    }
-
-    public Work_logEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -63,19 +49,19 @@ public class Work_logEntity {
         this.workLoh = workLoh;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Date getEditTime() {
+    public String getEditTime() {
         return editTime;
     }
 
-    public void setEditTime(Date editTime) {
+    public void setEditTime(String editTime) {
         this.editTime = editTime;
     }
 
@@ -85,5 +71,40 @@ public class Work_logEntity {
 
     public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
+    }
+
+    public Work_logEntity() {
+    }
+
+    public Work_logEntity(Integer userId, String workDate, String workLoh, String createTime, String editTime, Integer isdelete) {
+        this.userId = userId;
+        this.workDate = workDate;
+        this.workLoh = workLoh;
+        this.createTime = createTime;
+        this.editTime = editTime;
+        this.isdelete = isdelete;
+    }
+
+    public Work_logEntity(Integer id, Integer userId, String workDate, String workLoh, String createTime, String editTime, Integer isdelete) {
+        this.id = id;
+        this.userId = userId;
+        this.workDate = workDate;
+        this.workLoh = workLoh;
+        this.createTime = createTime;
+        this.editTime = editTime;
+        this.isdelete = isdelete;
+    }
+
+    @Override
+    public String toString() {
+        return "Work_logEntity{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", workDate='" + workDate + '\'' +
+                ", workLoh='" + workLoh + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", editTime='" + editTime + '\'' +
+                ", isdelete=" + isdelete +
+                '}';
     }
 }

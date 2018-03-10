@@ -11,18 +11,20 @@ public class EquipmentEntity {
 
     private Integer describe;
 
-    private Date createTime;
+    private String createTime;
 
     private Integer createWho;
 
-    private Date editTime;
+    private String editTime;
 
     private Integer editWho;
 
     private Integer isdelete;
 
-    public EquipmentEntity(Integer id, String name, Integer startus, Integer describe, Date createTime, Integer createWho, Date editTime, Integer editWho, Integer isdelete) {
-        this.id = id;
+    public EquipmentEntity() {
+    }
+
+    public EquipmentEntity(String name, Integer startus, Integer describe, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdelete) {
         this.name = name;
         this.startus = startus;
         this.describe = describe;
@@ -33,8 +35,16 @@ public class EquipmentEntity {
         this.isdelete = isdelete;
     }
 
-    public EquipmentEntity() {
-        super();
+    public EquipmentEntity(Integer id, String name, Integer startus, Integer describe, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdelete) {
+        this.id = id;
+        this.name = name;
+        this.startus = startus;
+        this.describe = describe;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.editTime = editTime;
+        this.editWho = editWho;
+        this.isdelete = isdelete;
     }
 
     public Integer getId() {
@@ -69,11 +79,11 @@ public class EquipmentEntity {
         this.describe = describe;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -85,11 +95,11 @@ public class EquipmentEntity {
         this.createWho = createWho;
     }
 
-    public Date getEditTime() {
+    public String getEditTime() {
         return editTime;
     }
 
-    public void setEditTime(Date editTime) {
+    public void setEditTime(String editTime) {
         this.editTime = editTime;
     }
 
@@ -107,5 +117,20 @@ public class EquipmentEntity {
 
     public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
+    }
+
+    @Override
+    public String toString() {
+        return "EquipmentEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", startus=" + startus +
+                ", describe=" + describe +
+                ", createTime='" + createTime + '\'' +
+                ", createWho=" + createWho +
+                ", editTime='" + editTime + '\'' +
+                ", editWho=" + editWho +
+                ", isdelete=" + isdelete +
+                '}';
     }
 }

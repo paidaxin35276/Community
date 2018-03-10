@@ -16,6 +16,7 @@ public class MeunEntity {
                 '}';
     }
 
+
     public Integer getId() {
         return id;
     }

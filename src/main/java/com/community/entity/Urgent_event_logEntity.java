@@ -9,33 +9,17 @@ public class Urgent_event_logEntity {
 
     private Integer assigner;
 
-    private Date assignerTime;
+    private String assignerTime;
 
     private Integer handler;
 
-    private Date handleTime;
+    private String handleTime;
 
     private String handleContents;
 
     private Integer status;
 
     private Integer isdelete;
-
-    public Urgent_event_logEntity(Integer id, Integer eventId, Integer assigner, Date assignerTime, Integer handler, Date handleTime, String handleContents, Integer status, Integer isdelete) {
-        this.id = id;
-        this.eventId = eventId;
-        this.assigner = assigner;
-        this.assignerTime = assignerTime;
-        this.handler = handler;
-        this.handleTime = handleTime;
-        this.handleContents = handleContents;
-        this.status = status;
-        this.isdelete = isdelete;
-    }
-
-    public Urgent_event_logEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -61,11 +45,11 @@ public class Urgent_event_logEntity {
         this.assigner = assigner;
     }
 
-    public Date getAssignerTime() {
+    public String getAssignerTime() {
         return assignerTime;
     }
 
-    public void setAssignerTime(Date assignerTime) {
+    public void setAssignerTime(String assignerTime) {
         this.assignerTime = assignerTime;
     }
 
@@ -77,11 +61,11 @@ public class Urgent_event_logEntity {
         this.handler = handler;
     }
 
-    public Date getHandleTime() {
+    public String getHandleTime() {
         return handleTime;
     }
 
-    public void setHandleTime(Date handleTime) {
+    public void setHandleTime(String handleTime) {
         this.handleTime = handleTime;
     }
 
@@ -107,5 +91,46 @@ public class Urgent_event_logEntity {
 
     public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
+    }
+
+    public Urgent_event_logEntity() {
+    }
+
+    public Urgent_event_logEntity(Integer eventId, Integer assigner, String assignerTime, Integer handler, String handleTime, String handleContents, Integer status, Integer isdelete) {
+        this.eventId = eventId;
+        this.assigner = assigner;
+        this.assignerTime = assignerTime;
+        this.handler = handler;
+        this.handleTime = handleTime;
+        this.handleContents = handleContents;
+        this.status = status;
+        this.isdelete = isdelete;
+    }
+
+    public Urgent_event_logEntity(Integer id, Integer eventId, Integer assigner, String assignerTime, Integer handler, String handleTime, String handleContents, Integer status, Integer isdelete) {
+        this.id = id;
+        this.eventId = eventId;
+        this.assigner = assigner;
+        this.assignerTime = assignerTime;
+        this.handler = handler;
+        this.handleTime = handleTime;
+        this.handleContents = handleContents;
+        this.status = status;
+        this.isdelete = isdelete;
+    }
+
+    @Override
+    public String toString() {
+        return "Urgent_event_logEntity{" +
+                "id=" + id +
+                ", eventId=" + eventId +
+                ", assigner=" + assigner +
+                ", assignerTime='" + assignerTime + '\'' +
+                ", handler=" + handler +
+                ", handleTime='" + handleTime + '\'' +
+                ", handleContents='" + handleContents + '\'' +
+                ", status=" + status +
+                ", isdelete=" + isdelete +
+                '}';
     }
 }

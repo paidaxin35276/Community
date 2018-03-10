@@ -9,24 +9,11 @@ public class BuildingEntity {
 
     private Integer type;
 
-    private Date createTime;
+    private String createTime;
 
     private Integer createWho;
 
     private Integer isdelete;
-
-    public BuildingEntity(Integer id, String buildingNo, Integer type, Date createTime, Integer createWho, Integer isdelete) {
-        this.id = id;
-        this.buildingNo = buildingNo;
-        this.type = type;
-        this.createTime = createTime;
-        this.createWho = createWho;
-        this.isdelete = isdelete;
-    }
-
-    public BuildingEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -52,11 +39,11 @@ public class BuildingEntity {
         this.type = type;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -73,6 +60,38 @@ public class BuildingEntity {
     }
 
     public void setIsdelete(Integer isdelete) {
+        this.isdelete = isdelete;
+    }
+
+    @Override
+    public String toString() {
+        return "BuildingEntity{" +
+                "id=" + id +
+                ", buildingNo='" + buildingNo + '\'' +
+                ", type=" + type +
+                ", createTime='" + createTime + '\'' +
+                ", createWho=" + createWho +
+                ", isdelete=" + isdelete +
+                '}';
+    }
+
+    public BuildingEntity() {
+    }
+
+    public BuildingEntity(String buildingNo, Integer type, String createTime, Integer createWho, Integer isdelete) {
+        this.buildingNo = buildingNo;
+        this.type = type;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.isdelete = isdelete;
+    }
+
+    public BuildingEntity(Integer id, String buildingNo, Integer type, String createTime, Integer createWho, Integer isdelete) {
+        this.id = id;
+        this.buildingNo = buildingNo;
+        this.type = type;
+        this.createTime = createTime;
+        this.createWho = createWho;
         this.isdelete = isdelete;
     }
 }

@@ -9,27 +9,13 @@ public class ComplainEntity {
 
     private String content;
 
-    private Date createTime;
+    private String createTime;
 
     private String userFeedback;
 
     private Integer userScore;
 
     private Integer status;
-
-    public ComplainEntity(Integer id, Integer userId, String content, Date createTime, String userFeedback, Integer userScore, Integer status) {
-        this.id = id;
-        this.userId = userId;
-        this.content = content;
-        this.createTime = createTime;
-        this.userFeedback = userFeedback;
-        this.userScore = userScore;
-        this.status = status;
-    }
-
-    public ComplainEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -55,11 +41,11 @@ public class ComplainEntity {
         this.content = content;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -85,5 +71,40 @@ public class ComplainEntity {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public ComplainEntity() {
+    }
+
+    public ComplainEntity(Integer userId, String content, String createTime, String userFeedback, Integer userScore, Integer status) {
+        this.userId = userId;
+        this.content = content;
+        this.createTime = createTime;
+        this.userFeedback = userFeedback;
+        this.userScore = userScore;
+        this.status = status;
+    }
+
+    public ComplainEntity(Integer id, Integer userId, String content, String createTime, String userFeedback, Integer userScore, Integer status) {
+        this.id = id;
+        this.userId = userId;
+        this.content = content;
+        this.createTime = createTime;
+        this.userFeedback = userFeedback;
+        this.userScore = userScore;
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "ComplainEntity{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", content='" + content + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", userFeedback='" + userFeedback + '\'' +
+                ", userScore=" + userScore +
+                ", status=" + status +
+                '}';
     }
 }

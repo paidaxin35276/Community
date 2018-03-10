@@ -9,27 +9,13 @@ public class Urgent_eventEntity {
 
     private String eventContent;
 
-    private Date createTime;
+    private String createTime;
 
     private String userFeedback;
 
     private Integer userScore;
 
     private Integer status;
-
-    public Urgent_eventEntity(Integer id, Integer userId, String eventContent, Date createTime, String userFeedback, Integer userScore, Integer status) {
-        this.id = id;
-        this.userId = userId;
-        this.eventContent = eventContent;
-        this.createTime = createTime;
-        this.userFeedback = userFeedback;
-        this.userScore = userScore;
-        this.status = status;
-    }
-
-    public Urgent_eventEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -55,11 +41,11 @@ public class Urgent_eventEntity {
         this.eventContent = eventContent;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -85,5 +71,40 @@ public class Urgent_eventEntity {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Urgent_eventEntity() {
+    }
+
+    public Urgent_eventEntity(Integer userId, String eventContent, String createTime, String userFeedback, Integer userScore, Integer status) {
+        this.userId = userId;
+        this.eventContent = eventContent;
+        this.createTime = createTime;
+        this.userFeedback = userFeedback;
+        this.userScore = userScore;
+        this.status = status;
+    }
+
+    public Urgent_eventEntity(Integer id, Integer userId, String eventContent, String createTime, String userFeedback, Integer userScore, Integer status) {
+        this.id = id;
+        this.userId = userId;
+        this.eventContent = eventContent;
+        this.createTime = createTime;
+        this.userFeedback = userFeedback;
+        this.userScore = userScore;
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Urgent_eventEntity{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", eventContent='" + eventContent + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", userFeedback='" + userFeedback + '\'' +
+                ", userScore=" + userScore +
+                ", status=" + status +
+                '}';
     }
 }

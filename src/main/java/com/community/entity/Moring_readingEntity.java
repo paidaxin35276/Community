@@ -7,29 +7,16 @@ public class Moring_readingEntity {
 
     private Integer userId;
 
-    private Date readingTime;
+    private String readingTime;
 
     private String readingContent;
 
-    private Date createTime;
+    private String createTime;
 
-    private Date editTime;
+    private String editTime;
 
     private Integer isdelete;
 
-    public Moring_readingEntity(Integer id, Integer userId, Date readingTime, String readingContent, Date createTime, Date editTime, Integer isdelete) {
-        this.id = id;
-        this.userId = userId;
-        this.readingTime = readingTime;
-        this.readingContent = readingContent;
-        this.createTime = createTime;
-        this.editTime = editTime;
-        this.isdelete = isdelete;
-    }
-
-    public Moring_readingEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -47,11 +34,11 @@ public class Moring_readingEntity {
         this.userId = userId;
     }
 
-    public Date getReadingTime() {
+    public String getReadingTime() {
         return readingTime;
     }
 
-    public void setReadingTime(Date readingTime) {
+    public void setReadingTime(String readingTime) {
         this.readingTime = readingTime;
     }
 
@@ -63,19 +50,19 @@ public class Moring_readingEntity {
         this.readingContent = readingContent;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Date getEditTime() {
+    public String getEditTime() {
         return editTime;
     }
 
-    public void setEditTime(Date editTime) {
+    public void setEditTime(String editTime) {
         this.editTime = editTime;
     }
 
@@ -85,5 +72,40 @@ public class Moring_readingEntity {
 
     public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
+    }
+
+    public Moring_readingEntity() {
+    }
+
+    public Moring_readingEntity(Integer userId, String readingTime, String readingContent, String createTime, String editTime, Integer isdelete) {
+        this.userId = userId;
+        this.readingTime = readingTime;
+        this.readingContent = readingContent;
+        this.createTime = createTime;
+        this.editTime = editTime;
+        this.isdelete = isdelete;
+    }
+
+    public Moring_readingEntity(Integer id, Integer userId, String readingTime, String readingContent, String createTime, String editTime, Integer isdelete) {
+        this.id = id;
+        this.userId = userId;
+        this.readingTime = readingTime;
+        this.readingContent = readingContent;
+        this.createTime = createTime;
+        this.editTime = editTime;
+        this.isdelete = isdelete;
+    }
+
+    @Override
+    public String toString() {
+        return "Moring_readingEntity{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", readingTime='" + readingTime + '\'' +
+                ", readingContent='" + readingContent + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", editTime='" + editTime + '\'' +
+                ", isdelete=" + isdelete +
+                '}';
     }
 }

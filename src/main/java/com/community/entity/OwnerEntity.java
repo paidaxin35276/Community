@@ -15,7 +15,7 @@ public class OwnerEntity {
 
     private String idcard;
 
-    private Date birthday;
+    private String birthday;
 
     private String address;
 
@@ -23,17 +23,37 @@ public class OwnerEntity {
 
     private Integer status;
 
-    private Date createTime;
+    private String createTime;
 
     private Integer createWho;
 
-    private Date editTime;
+    private String editTime;
 
     private Integer editWho;
 
     private Integer isdelete;
 
-    public OwnerEntity(Integer id, String username, String password, String nickname, String mobile, String idcard, Date birthday, String address, Integer type, Integer status, Date createTime, Integer createWho, Date editTime, Integer editWho, Integer isdelete) {
+    public OwnerEntity() {
+    }
+
+    public OwnerEntity(String username, String password, String nickname, String mobile, String idcard, String birthday, String address, Integer type, Integer status, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdelete) {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.mobile = mobile;
+        this.idcard = idcard;
+        this.birthday = birthday;
+        this.address = address;
+        this.type = type;
+        this.status = status;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.editTime = editTime;
+        this.editWho = editWho;
+        this.isdelete = isdelete;
+    }
+
+    public OwnerEntity(Integer id, String username, String password, String nickname, String mobile, String idcard, String birthday, String address, Integer type, Integer status, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdelete) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -51,8 +71,25 @@ public class OwnerEntity {
         this.isdelete = isdelete;
     }
 
-    public OwnerEntity() {
-        super();
+    @Override
+    public String toString() {
+        return "OwnerEntity{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", idcard='" + idcard + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", address='" + address + '\'' +
+                ", type=" + type +
+                ", status=" + status +
+                ", createTime='" + createTime + '\'' +
+                ", createWho=" + createWho +
+                ", editTime='" + editTime + '\'' +
+                ", editWho=" + editWho +
+                ", isdelete=" + isdelete +
+                '}';
     }
 
     public Integer getId() {
@@ -103,11 +140,11 @@ public class OwnerEntity {
         this.idcard = idcard;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -135,11 +172,11 @@ public class OwnerEntity {
         this.status = status;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -151,11 +188,11 @@ public class OwnerEntity {
         this.createWho = createWho;
     }
 
-    public Date getEditTime() {
+    public String getEditTime() {
         return editTime;
     }
 
-    public void setEditTime(Date editTime) {
+    public void setEditTime(String editTime) {
         this.editTime = editTime;
     }
 

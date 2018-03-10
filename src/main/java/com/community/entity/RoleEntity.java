@@ -7,29 +7,15 @@ public class RoleEntity {
 
     private String roleName;
 
-    private Date createTime;
+    private String createTime;
 
     private Integer createWho;
 
-    private Date editTime;
+    private String editTime;
 
     private Integer editWho;
 
     private Integer isdelete;
-
-    public RoleEntity(Integer id, String roleName, Date createTime, Integer createWho, Date editTime, Integer editWho, Integer isdelete) {
-        this.id = id;
-        this.roleName = roleName;
-        this.createTime = createTime;
-        this.createWho = createWho;
-        this.editTime = editTime;
-        this.editWho = editWho;
-        this.isdelete = isdelete;
-    }
-
-    public RoleEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -47,11 +33,11 @@ public class RoleEntity {
         this.roleName = roleName;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -63,11 +49,11 @@ public class RoleEntity {
         this.createWho = createWho;
     }
 
-    public Date getEditTime() {
+    public String getEditTime() {
         return editTime;
     }
 
-    public void setEditTime(Date editTime) {
+    public void setEditTime(String editTime) {
         this.editTime = editTime;
     }
 
@@ -85,5 +71,40 @@ public class RoleEntity {
 
     public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
+    }
+
+    public RoleEntity() {
+    }
+
+    public RoleEntity(String roleName, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdelete) {
+        this.roleName = roleName;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.editTime = editTime;
+        this.editWho = editWho;
+        this.isdelete = isdelete;
+    }
+
+    public RoleEntity(Integer id, String roleName, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdelete) {
+        this.id = id;
+        this.roleName = roleName;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.editTime = editTime;
+        this.editWho = editWho;
+        this.isdelete = isdelete;
+    }
+
+    @Override
+    public String toString() {
+        return "RoleEntity{" +
+                "id=" + id +
+                ", roleName='" + roleName + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", createWho=" + createWho +
+                ", editTime='" + editTime + '\'' +
+                ", editWho=" + editWho +
+                ", isdelete=" + isdelete +
+                '}';
     }
 }

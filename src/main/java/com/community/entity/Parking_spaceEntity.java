@@ -9,30 +9,15 @@ public class Parking_spaceEntity {
 
     private String image;
 
-    private Date createTime;
+    private String createTime;
 
     private Integer createWho;
 
-    private Date editTime;
+    private String editTime;
 
     private Integer editWho;
 
     private Integer status;
-
-    public Parking_spaceEntity(Integer id, Integer licensePlate, String image, Date createTime, Integer createWho, Date editTime, Integer editWho, Integer status) {
-        this.id = id;
-        this.licensePlate = licensePlate;
-        this.image = image;
-        this.createTime = createTime;
-        this.createWho = createWho;
-        this.editTime = editTime;
-        this.editWho = editWho;
-        this.status = status;
-    }
-
-    public Parking_spaceEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -58,11 +43,11 @@ public class Parking_spaceEntity {
         this.image = image;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -74,11 +59,11 @@ public class Parking_spaceEntity {
         this.createWho = createWho;
     }
 
-    public Date getEditTime() {
+    public String getEditTime() {
         return editTime;
     }
 
-    public void setEditTime(Date editTime) {
+    public void setEditTime(String editTime) {
         this.editTime = editTime;
     }
 
@@ -96,5 +81,43 @@ public class Parking_spaceEntity {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Parking_spaceEntity() {
+    }
+
+    public Parking_spaceEntity(Integer licensePlate, String image, String createTime, Integer createWho, String editTime, Integer editWho, Integer status) {
+        this.licensePlate = licensePlate;
+        this.image = image;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.editTime = editTime;
+        this.editWho = editWho;
+        this.status = status;
+    }
+
+    public Parking_spaceEntity(Integer id, Integer licensePlate, String image, String createTime, Integer createWho, String editTime, Integer editWho, Integer status) {
+        this.id = id;
+        this.licensePlate = licensePlate;
+        this.image = image;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.editTime = editTime;
+        this.editWho = editWho;
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Parking_spaceEntity{" +
+                "id=" + id +
+                ", licensePlate=" + licensePlate +
+                ", image='" + image + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", createWho=" + createWho +
+                ", editTime='" + editTime + '\'' +
+                ", editWho=" + editWho +
+                ", status=" + status +
+                '}';
     }
 }

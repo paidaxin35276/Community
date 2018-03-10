@@ -22,10 +22,13 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--引入数据源-->
         <property name="dataSource" ref="dataSource"></property>
+
+        <!--注解版mybatis 不需要任何配置文件 mybatis.cfg.xml也不需要-->
         <!--引入mybatis配置文件-->
-        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!--<property name="configLocation" value="classpath:mybatis-config.xml"></property>-->
         <!--引入MyBatis映射文件-->
-        <property name="mapperLocations" value="classpath:com/community/entity/entit_mapper/*.xml"></property>
+        <!--<property name="mapperLocations" value="classpath:com/community/entity"></property>-->
+        <!--<property name="mapperLocations" value="classpath:/Mapper/*.xml"></property>-->
     </bean>
 
     <!--扫描Mapper (dao包)-->
@@ -33,17 +36,6 @@
         <!-- 配置要扫描的包，如果扫描多个包使用半角逗号分隔 -->
         <property name="basePackage" value="com.community.dao"></property>
     </bean>
-    <!--配置PersonDao-->
-    <!--<bean id="personDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-        <property name="mapperInterface" value="com.zking.dao.PersonDao"></property>
-    </bean>-->
-
-
-    <!--<bean id="mypaidaxinlEntityDao" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
-        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>-->
-        <!--<property name="mapperInterface" value="com.community.dao.MypaidaxinlEntityMapper"></property>-->
-    <!--</bean>-->
 
 
     <!--事务管理器-->

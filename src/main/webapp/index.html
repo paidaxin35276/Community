@@ -40,19 +40,12 @@
 <div class="row">
     <div class="col-sm-2 co-md-2" style="background: #d1d6d8; height: 700px;">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="color: #5BC0DE;">
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
-                           aria-expanded="true" aria-controls="collapseOne">
-                            基础信息模块
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                    <div class="panel-body">
-                        基础信息模块_1
-                    </div>
+
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson
+                    cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
+                    vice lomo.
                 </div>
             </div>
         </div>
@@ -69,7 +62,8 @@
             </ul>
             <div class="tab-content" id="panel_content">
                 <div role="tabpanel" class="tab-pane active" id="home">
-                    <iframe src="https://www.baidu.com" style="height: 550px; width: 99%"></iframe>
+                    <!--<iframe src="https://www.baidu.com" style="height: 550px; width: 99%"></iframe>-->
+                    这是中间部分
                 </div>
             </div>
         </div>
@@ -88,8 +82,20 @@
             console.log(tabContext);
             tabContext.remove();
         });
-
-    }
+        $.ajax({
+                url: "meun/getMeun.action",
+                dataType: "JSON",
+                success: function (data) {
+                    var html = "";
+console.log(data);
+                    $.each(data, function (k, v) {
+                        html += "<div class='panel-heading' role='tab' id='heading"+v.id+"'> <h4 class='panel-title'> <a role='button' style='align-content: center' data-toggle='collapse' data-parent='#accordion' href='#collapseOne'aria-expanded='true' aria-controls='collapseOne'>"+v.name+"</a></h4> </div>"
+                    });
+                    $("#accordion").html(html);
+                }
+            }
+        );
+    })
 </script>
 
 </html>

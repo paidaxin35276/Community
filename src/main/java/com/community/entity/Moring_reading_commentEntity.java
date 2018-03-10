@@ -7,7 +7,7 @@ public class Moring_reading_commentEntity {
 
     private Integer readingId;
 
-    private Date commentTime;
+    private String commentTime;
 
     private String commentContent;
 
@@ -15,24 +15,9 @@ public class Moring_reading_commentEntity {
 
     private Integer commentId;
 
-    private Date createTime;
+    private String createTime;
 
     private Integer isdelete;
-
-    public Moring_reading_commentEntity(Integer id, Integer readingId, Date commentTime, String commentContent, Integer commentType, Integer commentId, Date createTime, Integer isdelete) {
-        this.id = id;
-        this.readingId = readingId;
-        this.commentTime = commentTime;
-        this.commentContent = commentContent;
-        this.commentType = commentType;
-        this.commentId = commentId;
-        this.createTime = createTime;
-        this.isdelete = isdelete;
-    }
-
-    public Moring_reading_commentEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -50,11 +35,11 @@ public class Moring_reading_commentEntity {
         this.readingId = readingId;
     }
 
-    public Date getCommentTime() {
+    public String getCommentTime() {
         return commentTime;
     }
 
-    public void setCommentTime(Date commentTime) {
+    public void setCommentTime(String commentTime) {
         this.commentTime = commentTime;
     }
 
@@ -82,11 +67,11 @@ public class Moring_reading_commentEntity {
         this.commentId = commentId;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -96,5 +81,43 @@ public class Moring_reading_commentEntity {
 
     public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
+    }
+
+    public Moring_reading_commentEntity() {
+    }
+
+    public Moring_reading_commentEntity(Integer readingId, String commentTime, String commentContent, Integer commentType, Integer commentId, String createTime, Integer isdelete) {
+        this.readingId = readingId;
+        this.commentTime = commentTime;
+        this.commentContent = commentContent;
+        this.commentType = commentType;
+        this.commentId = commentId;
+        this.createTime = createTime;
+        this.isdelete = isdelete;
+    }
+
+    public Moring_reading_commentEntity(Integer id, Integer readingId, String commentTime, String commentContent, Integer commentType, Integer commentId, String createTime, Integer isdelete) {
+        this.id = id;
+        this.readingId = readingId;
+        this.commentTime = commentTime;
+        this.commentContent = commentContent;
+        this.commentType = commentType;
+        this.commentId = commentId;
+        this.createTime = createTime;
+        this.isdelete = isdelete;
+    }
+
+    @Override
+    public String toString() {
+        return "Moring_reading_commentEntity{" +
+                "id=" + id +
+                ", readingId=" + readingId +
+                ", commentTime='" + commentTime + '\'' +
+                ", commentContent='" + commentContent + '\'' +
+                ", commentType=" + commentType +
+                ", commentId=" + commentId +
+                ", createTime='" + createTime + '\'' +
+                ", isdelete=" + isdelete +
+                '}';
     }
 }

@@ -9,13 +9,24 @@ public class Option_logEntity {
 
     private Integer optionType;
 
-    private Date optionTime;
+    private String optionTime;
 
     private Integer optionWho;
 
     private Integer isdelete;
 
-    public Option_logEntity(Integer id, String optionContents, Integer optionType, Date optionTime, Integer optionWho, Integer isdelete) {
+    public Option_logEntity() {
+    }
+
+    public Option_logEntity(String optionContents, Integer optionType, String optionTime, Integer optionWho, Integer isdelete) {
+        this.optionContents = optionContents;
+        this.optionType = optionType;
+        this.optionTime = optionTime;
+        this.optionWho = optionWho;
+        this.isdelete = isdelete;
+    }
+
+    public Option_logEntity(Integer id, String optionContents, Integer optionType, String optionTime, Integer optionWho, Integer isdelete) {
         this.id = id;
         this.optionContents = optionContents;
         this.optionType = optionType;
@@ -24,11 +35,8 @@ public class Option_logEntity {
         this.isdelete = isdelete;
     }
 
-    public Option_logEntity() {
-        super();
-    }
-
     public Integer getId() {
+
         return id;
     }
 
@@ -52,11 +60,11 @@ public class Option_logEntity {
         this.optionType = optionType;
     }
 
-    public Date getOptionTime() {
+    public String getOptionTime() {
         return optionTime;
     }
 
-    public void setOptionTime(Date optionTime) {
+    public void setOptionTime(String optionTime) {
         this.optionTime = optionTime;
     }
 
@@ -74,5 +82,17 @@ public class Option_logEntity {
 
     public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
+    }
+
+    @Override
+    public String toString() {
+        return "Option_logEntity{" +
+                "id=" + id +
+                ", optionContents='" + optionContents + '\'' +
+                ", optionType=" + optionType +
+                ", optionTime='" + optionTime + '\'' +
+                ", optionWho=" + optionWho +
+                ", isdelete=" + isdelete +
+                '}';
     }
 }

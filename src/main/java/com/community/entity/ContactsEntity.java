@@ -11,25 +11,11 @@ public class ContactsEntity {
 
     private String position;
 
-    private Date createTime;
+    private String createTime;
 
-    private Date editTime;
+    private String editTime;
 
     private Integer isdelete;
-
-    public ContactsEntity(Integer id, String contactname, String mobile, String position, Date createTime, Date editTime, Integer isdelete) {
-        this.id = id;
-        this.contactname = contactname;
-        this.mobile = mobile;
-        this.position = position;
-        this.createTime = createTime;
-        this.editTime = editTime;
-        this.isdelete = isdelete;
-    }
-
-    public ContactsEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -63,19 +49,19 @@ public class ContactsEntity {
         this.position = position;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Date getEditTime() {
+    public String getEditTime() {
         return editTime;
     }
 
-    public void setEditTime(Date editTime) {
+    public void setEditTime(String editTime) {
         this.editTime = editTime;
     }
 
@@ -85,5 +71,40 @@ public class ContactsEntity {
 
     public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
+    }
+
+    public ContactsEntity() {
+    }
+
+    public ContactsEntity(String contactname, String mobile, String position, String createTime, String editTime, Integer isdelete) {
+        this.contactname = contactname;
+        this.mobile = mobile;
+        this.position = position;
+        this.createTime = createTime;
+        this.editTime = editTime;
+        this.isdelete = isdelete;
+    }
+
+    public ContactsEntity(Integer id, String contactname, String mobile, String position, String createTime, String editTime, Integer isdelete) {
+        this.id = id;
+        this.contactname = contactname;
+        this.mobile = mobile;
+        this.position = position;
+        this.createTime = createTime;
+        this.editTime = editTime;
+        this.isdelete = isdelete;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactsEntity{" +
+                "id=" + id +
+                ", contactname='" + contactname + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", position='" + position + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", editTime='" + editTime + '\'' +
+                ", isdelete=" + isdelete +
+                '}';
     }
 }

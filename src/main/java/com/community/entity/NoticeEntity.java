@@ -9,13 +9,13 @@ public class NoticeEntity {
 
     private Integer rnoticeObject;
 
-    private Date createTime;
+    private String createTime;
 
     private Integer createWho;
 
     private Integer isdelete;
 
-    public NoticeEntity(Integer id, String notice, Integer rnoticeObject, Date createTime, Integer createWho, Integer isdelete) {
+    public NoticeEntity(Integer id, String notice, Integer rnoticeObject, String createTime, Integer createWho, Integer isdelete) {
         this.id = id;
         this.notice = notice;
         this.rnoticeObject = rnoticeObject;
@@ -24,8 +24,27 @@ public class NoticeEntity {
         this.isdelete = isdelete;
     }
 
+    public NoticeEntity(String notice, Integer rnoticeObject, String createTime, Integer createWho, Integer isdelete) {
+        this.notice = notice;
+        this.rnoticeObject = rnoticeObject;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.isdelete = isdelete;
+    }
+
     public NoticeEntity() {
-        super();
+    }
+
+    @Override
+    public String toString() {
+        return "NoticeEntity{" +
+                "id=" + id +
+                ", notice='" + notice + '\'' +
+                ", rnoticeObject=" + rnoticeObject +
+                ", createTime='" + createTime + '\'' +
+                ", createWho=" + createWho +
+                ", isdelete=" + isdelete +
+                '}';
     }
 
     public Integer getId() {
@@ -52,11 +71,11 @@ public class NoticeEntity {
         this.rnoticeObject = rnoticeObject;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 

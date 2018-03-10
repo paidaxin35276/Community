@@ -25,41 +25,17 @@ public class UserEntiy {
 
     private Integer status;
 
-    private Date createTime;
+    private String createTime;
 
     private Integer createWho;
 
-    private Date editTime;
+    private String editTime;
 
     private Integer editWho;
 
     private Integer isdemission;
 
     private Integer isdelete;
-
-    public UserEntiy(Integer id, String username, String password, String nickname, String mobile, String idcard, String birthday, String address, Integer deptId, Integer postion, Integer status, Date createTime, Integer createWho, Date editTime, Integer editWho, Integer isdemission, Integer isdelete) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.nickname = nickname;
-        this.mobile = mobile;
-        this.idcard = idcard;
-        this.birthday = birthday;
-        this.address = address;
-        this.deptId = deptId;
-        this.postion = postion;
-        this.status = status;
-        this.createTime = createTime;
-        this.createWho = createWho;
-        this.editTime = editTime;
-        this.editWho = editWho;
-        this.isdemission = isdemission;
-        this.isdelete = isdelete;
-    }
-
-    public UserEntiy() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -149,11 +125,11 @@ public class UserEntiy {
         this.status = status;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -165,11 +141,11 @@ public class UserEntiy {
         this.createWho = createWho;
     }
 
-    public Date getEditTime() {
+    public String getEditTime() {
         return editTime;
     }
 
-    public void setEditTime(Date editTime) {
+    public void setEditTime(String editTime) {
         this.editTime = editTime;
     }
 
@@ -195,5 +171,70 @@ public class UserEntiy {
 
     public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
+    }
+
+    public UserEntiy() {
+    }
+
+    public UserEntiy(String username, String password, String nickname, String mobile, String idcard, String birthday, String address, Integer deptId, Integer postion, Integer status, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdemission, Integer isdelete) {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.mobile = mobile;
+        this.idcard = idcard;
+        this.birthday = birthday;
+        this.address = address;
+        this.deptId = deptId;
+        this.postion = postion;
+        this.status = status;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.editTime = editTime;
+        this.editWho = editWho;
+        this.isdemission = isdemission;
+        this.isdelete = isdelete;
+    }
+
+    public UserEntiy(Integer id, String username, String password, String nickname, String mobile, String idcard, String birthday, String address, Integer deptId, Integer postion, Integer status, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdemission, Integer isdelete) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.mobile = mobile;
+        this.idcard = idcard;
+        this.birthday = birthday;
+        this.address = address;
+        this.deptId = deptId;
+        this.postion = postion;
+        this.status = status;
+        this.createTime = createTime;
+        this.createWho = createWho;
+        this.editTime = editTime;
+        this.editWho = editWho;
+        this.isdemission = isdemission;
+        this.isdelete = isdelete;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntiy{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", idcard='" + idcard + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", address='" + address + '\'' +
+                ", deptId=" + deptId +
+                ", postion=" + postion +
+                ", status=" + status +
+                ", createTime='" + createTime + '\'' +
+                ", createWho=" + createWho +
+                ", editTime='" + editTime + '\'' +
+                ", editWho=" + editWho +
+                ", isdemission=" + isdemission +
+                ", isdelete=" + isdelete +
+                '}';
     }
 }

@@ -7,9 +7,9 @@ public class AttendanceEntity {
 
     private Integer userId;
 
-    private Date amAttendance;
+    private String amAttendance;
 
-    private Date pmAttendance;
+    private String pmAttendance;
 
     private Integer times;
 
@@ -17,28 +17,11 @@ public class AttendanceEntity {
 
     private Integer status;
 
-    private Date createTime;
+    private String createTime;
 
-    private Date editTime;
+    private String editTime;
 
     private Integer isdelete;
-
-    public AttendanceEntity(Integer id, Integer userId, Date amAttendance, Date pmAttendance, Integer times, String marks, Integer status, Date createTime, Date editTime, Integer isdelete) {
-        this.id = id;
-        this.userId = userId;
-        this.amAttendance = amAttendance;
-        this.pmAttendance = pmAttendance;
-        this.times = times;
-        this.marks = marks;
-        this.status = status;
-        this.createTime = createTime;
-        this.editTime = editTime;
-        this.isdelete = isdelete;
-    }
-
-    public AttendanceEntity() {
-        super();
-    }
 
     public Integer getId() {
         return id;
@@ -56,19 +39,19 @@ public class AttendanceEntity {
         this.userId = userId;
     }
 
-    public Date getAmAttendance() {
+    public String getAmAttendance() {
         return amAttendance;
     }
 
-    public void setAmAttendance(Date amAttendance) {
+    public void setAmAttendance(String amAttendance) {
         this.amAttendance = amAttendance;
     }
 
-    public Date getPmAttendance() {
+    public String getPmAttendance() {
         return pmAttendance;
     }
 
-    public void setPmAttendance(Date pmAttendance) {
+    public void setPmAttendance(String pmAttendance) {
         this.pmAttendance = pmAttendance;
     }
 
@@ -96,19 +79,19 @@ public class AttendanceEntity {
         this.status = status;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Date getEditTime() {
+    public String getEditTime() {
         return editTime;
     }
 
-    public void setEditTime(Date editTime) {
+    public void setEditTime(String editTime) {
         this.editTime = editTime;
     }
 
@@ -118,5 +101,49 @@ public class AttendanceEntity {
 
     public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
+    }
+
+    public AttendanceEntity() {
+    }
+
+    public AttendanceEntity(Integer userId, String amAttendance, String pmAttendance, Integer times, String marks, Integer status, String createTime, String editTime, Integer isdelete) {
+        this.userId = userId;
+        this.amAttendance = amAttendance;
+        this.pmAttendance = pmAttendance;
+        this.times = times;
+        this.marks = marks;
+        this.status = status;
+        this.createTime = createTime;
+        this.editTime = editTime;
+        this.isdelete = isdelete;
+    }
+
+    public AttendanceEntity(Integer id, Integer userId, String amAttendance, String pmAttendance, Integer times, String marks, Integer status, String createTime, String editTime, Integer isdelete) {
+        this.id = id;
+        this.userId = userId;
+        this.amAttendance = amAttendance;
+        this.pmAttendance = pmAttendance;
+        this.times = times;
+        this.marks = marks;
+        this.status = status;
+        this.createTime = createTime;
+        this.editTime = editTime;
+        this.isdelete = isdelete;
+    }
+
+    @Override
+    public String toString() {
+        return "AttendanceEntity{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", amAttendance='" + amAttendance + '\'' +
+                ", pmAttendance='" + pmAttendance + '\'' +
+                ", times=" + times +
+                ", marks='" + marks + '\'' +
+                ", status=" + status +
+                ", createTime='" + createTime + '\'' +
+                ", editTime='" + editTime + '\'' +
+                ", isdelete=" + isdelete +
+                '}';
     }
 }
