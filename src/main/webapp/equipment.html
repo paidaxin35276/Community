@@ -30,7 +30,7 @@
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>修改
         </button>
         <!--@*删除按钮---无弹出框*@-->
-        <button id="btnDel" type="button" class="btn  btn-danger" data-toggle="modal" data-target="#DeleteForm" onclick="">
+        <button id="btnDel" type="button" class="btn  btn-danger" data-toggle="modal" data-target="#DeleteForm" onclick="delEquipment()">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>删除
         </button>
         <!--@*详情按钮*@-->
@@ -98,7 +98,7 @@
                 </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default"  data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary"  click="save_student()">保存</button>
+                    <button type="button" class="btn btn-primary" id="subbt">保存</button>
                 </div>
             </div>
         </div>
@@ -109,6 +109,30 @@
 
 <script>
 
+    //增加数据
+    $("#subbt").click( function(){
+
+        var name = $("#name").val();
+        var status = $("#status").val();
+        var describe = $("#describe").val();
+        var isdelete = $("#isdelete").val();
+        alert(name+" "+status+" "+describe+" "+isdelete);
+        $.ajax({
+            url:'addEquipment.action',
+            data:"name="+name+"&status="+status+"&describe="+describe+"&isdelete1="+isdelete,
+            //data:"name="+123,
+            method:'post',
+            dataType:'JSON',
+            success:function(data){
+
+            }
+        });
+        alert("sdfsdfsdfs")
+    });
+
+
+
+    //数据绑定
     $(function() {
         $('#table').bootstrapTable({
             url:'/getEquipment.action',
@@ -146,19 +170,19 @@
                 title: '设备描述',
                 align:'center'
             },{
-                field: 'createTime',
+                field: 'create_time',
                 title: '记录创建时间',
                 align:'center'
             },{
-                field: 'createWho',
+                field: 'create_who',
                 title: '创建人',
                 align:'center'
             },{
-                field: 'editTime',
+                field: 'edit_time',
                 title: '记录修改时间',
                 align:'center'
             },{
-                field: 'editWho',
+                field: 'edit_who',
                 title: '修改人',
                 align:'center'
             },{
@@ -168,6 +192,30 @@
             }]
         })
     });
+
+    //获取点击行的数据
+    var judge=true;
+    var clickrow;
+    function onclick(row, $element) {
+        clickrow=row;
+        console.log(clickrow);
+
+    }
+
+    //删除
+    function delEquipment() {
+        $.ajax({
+            url:'delEquipment.action',
+            data:clickrow,
+            method:'get',
+            dataType:'JSON',
+            success:function(data){
+                $("table").bootstrapTable("refresh",{
+                    url:'getEquipment.action'
+                })
+            }
+        });
+    }
 
     //增加的方法
     function conversion_stu() {

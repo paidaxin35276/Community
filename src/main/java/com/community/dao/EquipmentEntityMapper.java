@@ -1,35 +1,29 @@
 package com.community.dao;
 
 import com.community.entity.EquipmentEntity;
-import com.community.entity.UserEntiy;
-import com.community.util.SqlBuildUtil;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.SelectProvider;
+import com.community.util.EquipmentBuildUtil;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 public interface EquipmentEntityMapper {
 
 
-//    @Select("type = 类名  method 方法名)
-    @SelectProvider(type = SqlBuildUtil.class,method = "queryForEquipmentSql")
-    EquipmentEntity queryForNameByID(Integer id);
+    //    @Select("type = 类名  method 方法名)
 
-    @SelectProvider(type = SqlBuildUtil.class,method = "queryForEquipmentSql1")
-    @Results({
-            @Result(column="createTime",property="create_Time",javaType = java.sql.Date.class)
-    })
+    //数据绑定
+    @SelectProvider(type = EquipmentBuildUtil.class,method = "queryForEquipmentSql1")
     List<EquipmentEntity> queryForNameByID1();
 
-    int insert(EquipmentEntity record);
+    //增加数据
+    @InsertProvider(type=EquipmentBuildUtil.class,method = "addForEquipmentSql1")
+    void addEquipmentSql1(EquipmentEntity equipmentEntity);
 
-    int insertSelective(EquipmentEntity record);
+    //修改数据
+    @UpdateProvider(type=EquipmentBuildUtil.class,method = "updateForEquipmentSql1")
+    void updateEquipmentSql1(EquipmentEntity equipmentEntity);
 
-    EquipmentEntity selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(EquipmentEntity record);
-
-    int updateByPrimaryKey(EquipmentEntity record);
+    //删除数据
+    @DeleteProvider(type=EquipmentBuildUtil.class,method = "delForEquipmentSql1")
+    void delEquipmentSql1(Integer id);
 }
