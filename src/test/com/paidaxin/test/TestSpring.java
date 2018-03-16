@@ -6,11 +6,12 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Date;
+
 public class TestSpring {
     @Test
     public void test(){
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        MypaidaxinlEntityMapper mypaidaxinlEntityMapper = (MypaidaxinlEntityMapper) applicationContext.getBean("mypaidaxinlEntityMapper");
-        mypaidaxinlEntityMapper.insert(new MypaidaxinlEntity(3,"派大星","男"));
+        String createTime = new Date()+"";
+        System.out.println(createTime);
     }
 }
