@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->h
     <title>设备管理</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap-table.css" rel="stylesheet">
@@ -22,11 +22,11 @@
 
 <table class="table  table-hover table-project table-bordered" id="table">
     <div style="margin-top: 20px;">
-        <button data-toggle="modal" data-target="#addrow" type="button" class="btn  btn-success">
+        <button data-toggle="modal" data-target="#addequipment" type="button" class="btn  btn-success" onclick='conversion_stu()'>
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加
         </button>
         <!--@*修改按钮*@-->
-        <button data-toggle="modal" data-target="#updaterow" type="button" class="btn btn-warning" onclick="updatebefore();" >
+        <button data-toggle="modal" data-target="#updaterow" type="button" class="btn btn-warning" onclick='bb()' >
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>修改
         </button>
         <!--@*删除按钮---无弹出框*@-->
@@ -42,7 +42,7 @@
 </table>
 
 <!-- 增加模态框 -->
-<div class="modal fade" id="addrow" tabindex="-1" role="dialog"
+<div class="modal fade" id="addequipment" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -50,7 +50,58 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4>{{modal_title}}</h4>
+                <h4>增加设备</h4>
+            </div>
+            <div class="modal-body">
+                <form id="form1" class="form-horizontal" >
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >设备名称</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control"  id="ename"  placeholder="请输入设备名称">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >设备名称状态</label>
+                            <div class="col-sm-9">
+                                <select class="form-control"  id="status">
+                                    <option >--请选择设备名称状态--</option>
+                                    <option >使用</option>
+                                    <option >闲置</option>
+                                    <option >损坏</option>
+                                    <option >维修</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >设备描述</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="edescribe"  placeholder="请描述设备">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="addsubbt" data-dismiss="modal">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updateequipment" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>增加设备</h4>
             </div>
             <div class="modal-body">
                 <form id="form2" class="form-horizontal" >
@@ -59,19 +110,19 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label" >设备名称</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control"  id="name"  placeholder="请输入设备名称">
+                                <input type="text" class="form-control"  id="ename1"  placeholder="请输入设备名称">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label" >设备名称状态</label>
                             <div class="col-sm-9">
-                                <select class="form-control"  id="status">
-                                    <option>--请选择设备名称状态--</option>
-                                    <option>使用</option>
-                                    <option>闲置</option>
-                                    <option>损坏</option>
-                                    <option>维修</option>
+                                <select class="form-control"  id="status1">
+                                    <option >--请选择设备名称状态--</option>
+                                    <option id="1">使用</option>
+                                    <option id="2">闲置</option>
+                                    <option id="3">损坏</option>
+                                    <option id="4">维修</option>
                                 </select>
                             </div>
                         </div>
@@ -79,26 +130,14 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label" >设备描述</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="describe"  placeholder="请描述设备">
+                                <input type="text" class="form-control" id="edescribe1"  placeholder="请描述设备">
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" >是否已删除</label>
-                            <div class="col-sm-9">
-                                <select class="form-control"  id="isdelete">
-                                    <option></option>
-                                    <option>是</option>
-                                    <option>否</option>
-                                </select>
-                            </div>
-                        </div>
-
                     </div>
                 </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default"  data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" id="subbt">保存</button>
+                    <button type="button" class="btn btn-primary" id="updatesubbt" data-dismiss="modal">保存</button>
                 </div>
             </div>
         </div>
@@ -108,29 +147,6 @@
 
 
 <script>
-
-    //增加数据
-    $("#subbt").click( function(){
-
-        var name = $("#name").val();
-        var status = $("#status").val();
-        var describe = $("#describe").val();
-        var isdelete = $("#isdelete").val();
-        alert(name+" "+status+" "+describe+" "+isdelete);
-        $.ajax({
-            url:'addEquipment.action',
-            data:"name="+name+"&status="+status+"&describe="+describe+"&isdelete1="+isdelete,
-            //data:"name="+123,
-            method:'post',
-            dataType:'JSON',
-            success:function(data){
-
-            }
-        });
-        alert("sdfsdfsdfs")
-    });
-
-
 
     //数据绑定
     $(function() {
@@ -158,15 +174,17 @@
                 title: '设备编号',
                 align:'center'
             },{
-                field: 'name',
+                field: 'ename',
                 title: '设备名称',
                 align:'center'
             },{
                 field: 'startus',
                 title: '设备状态',
-                align:'center'
+                align:'center',
+                formatter:testone
+
             },{
-                field: 'describe',
+                field: 'edescribe',
                 title: '设备描述',
                 align:'center'
             },{
@@ -199,9 +217,18 @@
     function onclick(row, $element) {
         clickrow=row;
         console.log(clickrow);
-
     }
-
+    function testone(object_id,object_dom,rowIndex){
+        if(object_id==1){
+            return "<span>使用</span>";
+        }else if (object_id==2){
+            return "<span>闲置</span>";
+        }else if (object_id==3){
+            return "<span>损坏</span>";
+        }else if (object_id==4){
+            return "<span>维修</span>";
+        }
+    }
     //删除
     function delEquipment() {
         $.ajax({
@@ -217,37 +244,57 @@
         });
     }
 
-    //增加的方法
-    function conversion_stu() {
-        this.modal_title='增加';
-        var _this=this;
-    }
-
-    //判断增加修改模态框
-    function save_student(){
-        var  _this = this;
-        if(_this.modal_title=="增加"){
-            _this.url_action="addEquipment";
-        }
-        else if(_this.modal_title=="修改"){
-            _this.url_action="updateEquipment";
-        }
-        var text=$("#form2").serialize();
+    //增加数据
+    $("#addsubbt").click( function(){
+        var ename = $("#ename").val();
+        var status = $("#status").val();
+        var edescribe = $("#edescribe").val();
         $.ajax({
-            url:_this.url_action,
-            type:'get',
-            data:text,
-            success:function () {
-                $("#student").modal('hide');
-                _this.student_By="";
-                _this.inqire_student();
+            url:'addEquipment.action',
+            data:"ename="+ename+"&status="+status+"&edescribe="+deescribe,
+            method:'get',
+            dataType:'JSON',
+            success:function(data){
+                $("table").bootstrapTable("refresh",{
+                    url:'getEquipment.action'
+                })
             }
         });
+    });
+
+    //数据绑定
+    function bb(){
+        $("#updateequipment").modal('show');
+        $("#ename1").val(clickrow.ename);
+        var selec = document.getElementById("status1");
+        console.log(selec);
+        for(i = 0;i < selec.length;i++){
+            if(selec[i].id==clickrow.startus){
+                selec[i].selected = true;
+            }
+        }
+        $("#edescribe1").val(clickrow.edescribe);
     }
 
-
-
-
+    //修改
+    $('#updatesubbt').click(function(){
+        // alert($("#status1 option:selected").val());
+        clickrow.ename = $("#ename1").val();
+        clickrow.status = $("#status1").val();
+        clickrow.edescribe = $("#edescribe1").val();
+        console.log(clickrow);
+        $.ajax({
+            url:'/updateEquipment.action?struts',
+            data:clickrow,
+            method:'get',
+            dataType:'JSON',
+            success:function(data){
+                $("table").bootstrapTable("refresh",{
+                    url:'getEquipment.action'
+                })
+            }
+        });
+    });
 
 
 

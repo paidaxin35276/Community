@@ -5,45 +5,45 @@ import java.util.Date;
 public class EquipmentEntity {
     private Integer id;
 
-    private String name;
+    private String ename;
 
     private Integer startus;
 
-    private Integer describe;
+    private String edescribe;
 
-    private String createTime;
+    private String create_time;
 
-    private Integer createWho;
+    private Integer create_who;
 
-    private String editTime;
+    private String edit_time;
 
-    private Integer editWho;
+    private Integer edit_who;
 
     private Integer isdelete;
 
     public EquipmentEntity() {
     }
 
-    public EquipmentEntity(String name, Integer startus, Integer describe, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdelete) {
-        this.name = name;
+    public EquipmentEntity(String ename, Integer startus, String edescribe, String create_time, Integer create_who, String edit_time, Integer edit_who, Integer isdelete) {
+        this.ename = ename;
         this.startus = startus;
-        this.describe = describe;
-        this.createTime = createTime;
-        this.createWho = createWho;
-        this.editTime = editTime;
-        this.editWho = editWho;
+        this.edescribe = edescribe;
+        this.create_time = create_time;
+        this.create_who = create_who;
+        this.edit_time = edit_time;
+        this.edit_who = edit_who;
         this.isdelete = isdelete;
     }
 
-    public EquipmentEntity(Integer id, String name, Integer startus, Integer describe, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdelete) {
+    public EquipmentEntity(Integer id, String ename, Integer startus, String edescribe, String create_time, Integer create_who, String edit_time, Integer edit_who, Integer isdelete) {
         this.id = id;
-        this.name = name;
+        this.ename = ename;
         this.startus = startus;
-        this.describe = describe;
-        this.createTime = createTime;
-        this.createWho = createWho;
-        this.editTime = editTime;
-        this.editWho = editWho;
+        this.edescribe = edescribe;
+        this.create_time = create_time;
+        this.create_who = create_who;
+        this.edit_time = edit_time;
+        this.edit_who = edit_who;
         this.isdelete = isdelete;
     }
 
@@ -55,12 +55,12 @@ public class EquipmentEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getEname() {
+        return ename;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEname(String ename) {
+        this.ename = ename;
     }
 
     public Integer getStartus() {
@@ -71,44 +71,44 @@ public class EquipmentEntity {
         this.startus = startus;
     }
 
-    public Integer getDescribe() {
-        return describe;
+    public String getEdescribe() {
+        return edescribe;
     }
 
-    public void setDescribe(Integer describe) {
-        this.describe = describe;
+    public void setEdescribe(String edescribe) {
+        this.edescribe = edescribe;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
     }
 
-    public Integer getCreateWho() {
-        return createWho;
+    public Integer getCreate_who() {
+        return create_who;
     }
 
-    public void setCreateWho(Integer createWho) {
-        this.createWho = createWho;
+    public void setCreate_who(Integer create_who) {
+        this.create_who = create_who;
     }
 
-    public String getEditTime() {
-        return editTime;
+    public String getEdit_time() {
+        return edit_time;
     }
 
-    public void setEditTime(String editTime) {
-        this.editTime = editTime;
+    public void setEdit_time(String edit_time) {
+        this.edit_time = edit_time;
     }
 
-    public Integer getEditWho() {
-        return editWho;
+    public Integer getEdit_who() {
+        return edit_who;
     }
 
-    public void setEditWho(Integer editWho) {
-        this.editWho = editWho;
+    public void setEdit_who(Integer edit_who) {
+        this.edit_who = edit_who;
     }
 
     public Integer getIsdelete() {
@@ -123,13 +123,13 @@ public class EquipmentEntity {
     public String toString() {
         return "EquipmentEntity{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", ename='" + ename + '\'' +
                 ", startus=" + startus +
-                ", describe=" + describe +
-                ", createTime='" + createTime + '\'' +
-                ", createWho=" + createWho +
-                ", editTime='" + editTime + '\'' +
-                ", editWho=" + editWho +
+                ", edescribe='" + edescribe + '\'' +
+                ", create_time='" + create_time + '\'' +
+                ", create_who=" + create_who +
+                ", edit_time='" + edit_time + '\'' +
+                ", edit_who=" + edit_who +
                 ", isdelete=" + isdelete +
                 '}';
     }

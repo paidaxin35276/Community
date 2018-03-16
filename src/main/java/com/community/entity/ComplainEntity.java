@@ -5,17 +5,39 @@ import java.util.Date;
 public class ComplainEntity {
     private Integer id;
 
-    private Integer userId;
+    private Integer user_id;
 
     private String content;
 
-    private String createTime;
+    private String create_time;
 
-    private String userFeedback;
+    private String user_feedback;
 
-    private Integer userScore;
+    private Integer user_score;
 
     private Integer status;
+
+    public ComplainEntity() {
+    }
+
+    public ComplainEntity(Integer user_id, String content, String create_time, String user_feedback, Integer user_score, Integer status) {
+        this.user_id = user_id;
+        this.content = content;
+        this.create_time = create_time;
+        this.user_feedback = user_feedback;
+        this.user_score = user_score;
+        this.status = status;
+    }
+
+    public ComplainEntity(Integer id, Integer user_id, String content, String create_time, String user_feedback, Integer user_score, Integer status) {
+        this.id = id;
+        this.user_id = user_id;
+        this.content = content;
+        this.create_time = create_time;
+        this.user_feedback = user_feedback;
+        this.user_score = user_score;
+        this.status = status;
+    }
 
     public Integer getId() {
         return id;
@@ -25,12 +47,12 @@ public class ComplainEntity {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 
     public String getContent() {
@@ -41,28 +63,28 @@ public class ComplainEntity {
         this.content = content;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
     }
 
-    public String getUserFeedback() {
-        return userFeedback;
+    public String getUser_feedback() {
+        return user_feedback;
     }
 
-    public void setUserFeedback(String userFeedback) {
-        this.userFeedback = userFeedback;
+    public void setUser_feedback(String user_feedback) {
+        this.user_feedback = user_feedback;
     }
 
-    public Integer getUserScore() {
-        return userScore;
+    public Integer getUser_score() {
+        return user_score;
     }
 
-    public void setUserScore(Integer userScore) {
-        this.userScore = userScore;
+    public void setUser_score(Integer user_score) {
+        this.user_score = user_score;
     }
 
     public Integer getStatus() {
@@ -73,37 +95,15 @@ public class ComplainEntity {
         this.status = status;
     }
 
-    public ComplainEntity() {
-    }
-
-    public ComplainEntity(Integer userId, String content, String createTime, String userFeedback, Integer userScore, Integer status) {
-        this.userId = userId;
-        this.content = content;
-        this.createTime = createTime;
-        this.userFeedback = userFeedback;
-        this.userScore = userScore;
-        this.status = status;
-    }
-
-    public ComplainEntity(Integer id, Integer userId, String content, String createTime, String userFeedback, Integer userScore, Integer status) {
-        this.id = id;
-        this.userId = userId;
-        this.content = content;
-        this.createTime = createTime;
-        this.userFeedback = userFeedback;
-        this.userScore = userScore;
-        this.status = status;
-    }
-
     @Override
     public String toString() {
         return "ComplainEntity{" +
                 "id=" + id +
-                ", userId=" + userId +
+                ", user_id=" + user_id +
                 ", content='" + content + '\'' +
-                ", createTime='" + createTime + '\'' +
-                ", userFeedback='" + userFeedback + '\'' +
-                ", userScore=" + userScore +
+                ", create_time='" + create_time + '\'' +
+                ", user_feedback='" + user_feedback + '\'' +
+                ", user_score=" + user_score +
                 ", status=" + status +
                 '}';
     }

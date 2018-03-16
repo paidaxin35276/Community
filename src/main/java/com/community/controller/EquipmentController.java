@@ -3,9 +3,11 @@ package com.community.controller;
 import com.alibaba.fastjson.JSON;
 import com.community.dao.EquipmentEntityMapper;
 import com.community.entity.EquipmentEntity;
+import com.community.entity.UserEntiy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,28 +36,67 @@ public class EquipmentController {
     @RequestMapping("addEquipment")
     public void addEquipment(EquipmentEntity equipmentEntity, HttpServletRequest request,HttpServletResponse response) throws Exception {
         response.setCharacterEncoding("utf-8");
-        System.out.println(111111111);
-        String name = new String(request.getParameter("name").getBytes("iso-8859-1"),"utf-8");
-        String status = new String(request.getParameter("status").getBytes("iso-8859-1"),"utf-8");
-        String describe = new String(request.getParameter("describe").getBytes("iso-8859-1"),"utf-8");
+        String ename = request.getParameter("ename");
+        String status = request.getParameter("status");
+        if ("使用".equals(status)){
+            status = "1";
+        } else if ("闲置".equals(status)){
+            status = "2";
+        } else if ("损坏".equals(status)){
+            status = "3";
+        } else if ("维修".equals(status)){
+            status = "4";
+        }
+        String edescribe = request.getParameter("edescribe");
         SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd ");
         String createTime = formatter.format(new Date());
-        String isdelete = new String(request.getParameter("isdelete").getBytes("iso-8859-1"),"utf-8");
-        if ("是".equals(isdelete)) {
-            isdelete = "0";
-        } else if ("否".equals(isdelete)) {
-            isdelete = "1";
-        }
-        equipmentEntity = new EquipmentEntity();
-        equipmentEntity.setName(name);
-        equipmentEntity.setStartus(Integer.parseInt(status));
-        equipmentEntity.setDescribe(describe);
         equipmentEntity.setCreate_time(createTime);
-        equipmentEntity.setIsdelete(Integer.parseInt(isdelete));
+        equipmentEntity.setStartus(Integer.parseInt(status));
+        equipmentEntity.setEname(ename);
+        equipmentEntity.setEdescribe(edescribe);
         equipmentEntityMapper.addEquipmentSql1(equipmentEntity);
         System.out.println(equipmentEntity);
         response.getWriter().write("{\"success\":\"success\"}");
     }
+//        @RequestMapping
+//         @ResponseBody
+//        public  String logind(HttpServletRequest request,HttpServletResponse response){
+//            UserEntiy user = new UserEntiy();
+//            request.setAttribute("user",user.getUsername());
+//            String userName = (String) request.getAttribute("user");
+//
+//            return " ";
+//    }
+
+    //增加数据
+    @RequestMapping("updateEquipment")
+    public void updateEquipment(EquipmentEntity equipmentEntity, HttpServletRequest request,HttpServletResponse response) throws Exception {
+        System.out.println("id="+equipmentEntity.getId());
+        response.setCharacterEncoding("utf-8");
+        String ename = request.getParameter("ename");
+        String status = request.getParameter("status");
+        System.out.println();
+        if ("使用".equals(status)){
+            status = "1";
+        } else if ("闲置".equals(status)){
+            status = "2";
+        } else if ("损坏".equals(status)){
+            status = "3";
+        } else if ("维修".equals(status)){
+            status = "4";
+        }
+        String edescribe = request.getParameter("edescribe");
+        SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd ");
+        String editTime = formatter.format(new Date());
+        equipmentEntity.setCreate_time(editTime);
+        equipmentEntity.setStartus(Integer.parseInt(status));
+        equipmentEntity.setEname(ename);
+        equipmentEntity.setEdescribe(edescribe);
+        equipmentEntityMapper.updateEquipmentSql1(equipmentEntity);
+        System.out.println(equipmentEntity);
+        response.getWriter().write("{\"success\":\"success\"}");
+    }
+
 
     @RequestMapping("delEquipment")
     public void delEquipment(HttpServletResponse response,HttpServletRequest request) throws Exception{;
