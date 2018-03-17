@@ -55,23 +55,12 @@ public class EquipmentController {
         equipmentEntity.setEname(ename);
         equipmentEntity.setEdescribe(edescribe);
         equipmentEntityMapper.addEquipmentSql1(equipmentEntity);
-        System.out.println(equipmentEntity);
         response.getWriter().write("{\"success\":\"success\"}");
     }
-//        @RequestMapping
-//         @ResponseBody
-//        public  String logind(HttpServletRequest request,HttpServletResponse response){
-//            UserEntiy user = new UserEntiy();
-//            request.setAttribute("user",user.getUsername());
-//            String userName = (String) request.getAttribute("user");
-//
-//            return " ";
-//    }
 
     //修改数据
     @RequestMapping("updateEquipment")
     public void updateEquipment(EquipmentEntity equipmentEntity, HttpServletRequest request,HttpServletResponse response) throws Exception {
-        System.out.println("id="+equipmentEntity.getId());
         response.setCharacterEncoding("utf-8");
         String ename = request.getParameter("ename");
         String status = request.getParameter("status");
@@ -93,7 +82,6 @@ public class EquipmentController {
         equipmentEntity.setEdescribe(edescribe);
         equipmentEntity.setEdit_time(editTime);
         equipmentEntityMapper.updateEquipmentSql1(equipmentEntity);
-        System.out.println(equipmentEntity);
         response.getWriter().write("{\"success\":\"success\"}");
     }
 
