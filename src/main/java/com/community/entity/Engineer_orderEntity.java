@@ -2,7 +2,7 @@ package com.community.entity;
 
 import java.util.Date;
 
-public class Engineer_orderEntity {
+public class Engineer_orderEntity extends BaseEntity{
     private Integer id;
 
     private Integer form_id;

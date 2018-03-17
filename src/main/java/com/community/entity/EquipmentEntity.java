@@ -2,7 +2,7 @@ package com.community.entity;
 
 import java.util.Date;
 
-public class EquipmentEntity {
+public class EquipmentEntity extends BaseEntity{
     private Integer id;
 
     private String ename;

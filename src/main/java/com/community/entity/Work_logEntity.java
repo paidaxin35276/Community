@@ -2,7 +2,7 @@ package com.community.entity;
 
 import java.util.Date;
 
-public class Work_logEntity {
+public class Work_logEntity extends BaseEntity{
     private Integer id;
 
     private Integer userId;

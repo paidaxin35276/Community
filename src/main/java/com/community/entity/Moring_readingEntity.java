@@ -2,7 +2,7 @@ package com.community.entity;
 
 import java.util.Date;
 
-public class Moring_readingEntity {
+public class Moring_readingEntity extends BaseEntity{
     private Integer id;
 
     private Integer userId;

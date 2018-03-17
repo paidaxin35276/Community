@@ -6,6 +6,8 @@ import com.community.entity.MeunEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,16 +20,42 @@ public class MeunController {
     @Autowired
     public MenuEntityMapper menuEntityMapper;
 
+    private HttpServletRequest request;
+    private HttpServletResponse response;
+
+
+
+
     @RequestMapping(value = "getMeun")
     public void getMeun(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("菜单查询——进来了");
-        request.setCharacterEncoding("utf-8");
+        this.request = request;
+        this.response = response;
         response.setCharacterEncoding("utf-8");
-        List<MeunEntity> list = menuEntityMapper.getTwo(1);
-        String jsonString = JSON.toJSONString(list);
+        request.setCharacterEncoding("utf-8");
+        List<MeunEntity> list = menuEntityMapper.getOne();
+        for (MeunEntity meunEntity : list) {
+            List<MeunEntity> list1 = menuEntityMapper.getTwo(meunEntity.getId());
+            meunEntity.setList(list1);
+        }
+        String str = JSON.toJSONString(list);
+        //因为一旦主菜单中没有子菜单 那么json传过去的数据就有个字段是 list:[]
+        //为了避免给前台造成不必要的麻烦 在后台直接把这个list:[]给过滤掉！！！！！
+        String jsonString = str.toString().replace(",\"list\":[]", "");
         System.out.println(jsonString);
-        System.out.println("菜单查询——出去了");
-        request.setAttribute("JsonStr",jsonString);
-        response.getWriter().print(jsonString);
+        response.getWriter().write(jsonString);
     }
+
+//    @ResponseBody
+//    @RequestMapping(value = "getTwo",method = RequestMethod.POST)
+//    public List<MeunEntity> getMeunTwo() throws IOException {
+//        Integer id = 1;
+//        String _id = request.getParameter("id");
+//        if(null!=_id){
+//            id = Integer.parseInt(_id);
+//        }
+//        List<MeunEntity> list = menuEntityMapper.getTwo(id);
+//        String jsonString = JSON.toJSONString(list);
+//        return list;
+//    }
+
 }

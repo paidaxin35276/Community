@@ -2,7 +2,7 @@ package com.community.entity;
 
 import java.util.Date;
 
-public class ComplainEntity {
+public class ComplainEntity extends BaseEntity{
     private Integer id;
 
     private Integer user_id;

@@ -2,7 +2,7 @@ package com.community.entity;
 
 import java.util.Date;
 
-public class VisitorEntity {
+public class VisitorEntity extends BaseEntity{
     private Integer id;
 
     private String visitorname;

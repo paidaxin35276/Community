@@ -2,7 +2,7 @@ package com.community.entity;
 
 import java.util.Date;
 
-public class Parking_spaceEntity {
+public class Parking_spaceEntity extends BaseEntity{
     private Integer id;
 
     private Integer licensePlate;

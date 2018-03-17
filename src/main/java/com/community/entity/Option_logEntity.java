@@ -2,7 +2,7 @@ package com.community.entity;
 
 import java.util.Date;
 
-public class Option_logEntity {
+public class Option_logEntity extends BaseEntity{
     private Integer id;
 
     private String optionContents;
