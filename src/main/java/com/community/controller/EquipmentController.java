@@ -68,7 +68,7 @@ public class EquipmentController {
 //            return " ";
 //    }
 
-    //增加数据
+    //修改数据
     @RequestMapping("updateEquipment")
     public void updateEquipment(EquipmentEntity equipmentEntity, HttpServletRequest request,HttpServletResponse response) throws Exception {
         System.out.println("id="+equipmentEntity.getId());
@@ -88,10 +88,10 @@ public class EquipmentController {
         String edescribe = request.getParameter("edescribe");
         SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd ");
         String editTime = formatter.format(new Date());
-        equipmentEntity.setCreate_time(editTime);
         equipmentEntity.setStartus(Integer.parseInt(status));
         equipmentEntity.setEname(ename);
         equipmentEntity.setEdescribe(edescribe);
+        equipmentEntity.setEdit_time(editTime);
         equipmentEntityMapper.updateEquipmentSql1(equipmentEntity);
         System.out.println(equipmentEntity);
         response.getWriter().write("{\"success\":\"success\"}");

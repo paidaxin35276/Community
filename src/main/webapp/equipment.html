@@ -284,7 +284,7 @@
         clickrow.edescribe = $("#edescribe1").val();
         console.log(clickrow);
         $.ajax({
-            url:'/updateEquipment.action?struts',
+            url:'/updateEquipment.action',
             data:clickrow,
             method:'get',
             dataType:'JSON',

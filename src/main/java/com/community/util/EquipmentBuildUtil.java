@@ -22,14 +22,14 @@ public class EquipmentBuildUtil {
 
     //修改数据
     public  String updateForEquipmentSql1(EquipmentEntity equipmentEntity){
-        int create_who = 0;
-        if (null==equipmentEntity.getCreate_who()){
+        int edit_who = 0;
+        if (null==equipmentEntity.getEdit_who()){
 
         }else{
-            create_who = equipmentEntity.getCreate_who();
+            edit_who = equipmentEntity.getEdit_who();
         }
-        System.out.println("util:"+equipmentEntity.getEname()+"   "+equipmentEntity.getEdescribe()+"  "+equipmentEntity.getStartus()+"   "+equipmentEntity.getEdit_who()+"     "+equipmentEntity.getId());
-        return "update equipment set ename='"+equipmentEntity.getEname()+"',startus='"+equipmentEntity.getStartus()+"',edescribe='"+equipmentEntity.getEdescribe()+"',edit_time='"+equipmentEntity.getEdit_who()+"',edit_who='"+create_who+"' where id='"+equipmentEntity.getId()+"'";
+        System.out.println("util:"+equipmentEntity.getEname()+"   "+equipmentEntity.getEdescribe()+"  "+equipmentEntity.getStartus()+"   "+equipmentEntity.getEdit_who()+"     "+equipmentEntity.getId()+"   "+equipmentEntity.getEdit_time());
+        return "update equipment set ename='"+equipmentEntity.getEname()+"',startus='"+equipmentEntity.getStartus()+"',edescribe='"+equipmentEntity.getEdescribe()+"',edit_time='"+equipmentEntity.getEdit_time()+"',edit_who="+edit_who+" where id='"+equipmentEntity.getId()+"'";
     }
 
     //删除数据
