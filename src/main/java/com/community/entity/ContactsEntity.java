@@ -2,7 +2,7 @@ package com.community.entity;
 
 import java.util.Date;
 
-public class ContactsEntity {
+public class ContactsEntity extends BaseEntity{
     private Integer id;
 
     private String contactname;

@@ -1,6 +1,6 @@
 package com.community.entity;
 
-public class MypaidaxinlEntity {
+public class MypaidaxinlEntity extends BaseEntity{
     private Integer id;
 
     private String name;

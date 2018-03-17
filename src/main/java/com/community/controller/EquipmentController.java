@@ -52,18 +52,8 @@ public class EquipmentController {
         equipmentEntity.setEname(ename);
         equipmentEntity.setEdescribe(edescribe);
         equipmentEntityMapper.addEquipmentSql1(equipmentEntity);
-        System.out.println(equipmentEntity);
         response.getWriter().write("{\"success\":\"success\"}");
     }
-//        @RequestMapping
-//         @ResponseBody
-//        public  String logind(HttpServletRequest request,HttpServletResponse response){
-//            UserEntiy user = new UserEntiy();
-//            request.setAttribute("user",user.getUsername());
-//            String userName = (String) request.getAttribute("user");
-//
-//            return " ";
-//    }
 
     //修改数据
     @RequestMapping("updateEquipment")

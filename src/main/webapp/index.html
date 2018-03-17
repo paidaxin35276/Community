@@ -38,18 +38,12 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-2 co-md-2" style="background: #d1d6d8; height: 700px;">
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="color: #5BC0DE;">
+    <div class="col-sm-2 co-md-2;panel panel-default" style="background: #d1d6d8; height: 700px;">
+        <div class="panel-group" id="accordion">
 
-            <div id="collapseOne" class="panel-collapse collapse">
-                <div class="panel-body">
-                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                    cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                    vice lomo.
-                </div>
-            </div>
         </div>
     </div>
+
     <!-- 标签页 -->
     <div class="col-sm-10 co-md-10" style="background: #f6f7f7; height: 700px;">
         <div>
@@ -82,19 +76,26 @@
             console.log(tabContext);
             tabContext.remove();
         });
+        
         $.ajax({
                 url: "meun/getMeun.action",
                 dataType: "JSON",
                 success: function (data) {
                     var html = "";
-console.log(data);
+                    var currentId=1;
                     $.each(data, function (k, v) {
-                        html += "<div class='panel-heading' role='tab' id='heading"+v.id+"'> <h4 class='panel-title'> <a role='button' style='align-content: center' data-toggle='collapse' data-parent='#accordion' href='#collapseOne'aria-expanded='true' aria-controls='collapseOne'>"+v.name+"</a></h4> </div>"
+                        html += "<div class='panel panel-default'><div class='panel-heading' role='tab' id='heading"+v.id+"'> <h4 class='panel-title'> <a style='margin-left: 20px;text-decoration: none;align-content: center;' data-toggle='collapse' data-parent='#accordion' href='#collapse"+v.id+"'>"+v.name+"</a></h4> </div>"
+                        if(null!=v.list){
+                            html +="<div id='collapse"+v.id+"' class='panel-collapse collapse'>";
+                            $.each(v.list, function (k, v) {
+                                html += "<div class='panel-body' style='margin-left: 40px'>"+v.name+"</div>";
+                            });
+                            html +="</div></div>"
+                        }
                     });
                     $("#accordion").html(html);
                 }
-            }
-        );
+        });
     })
 </script>
 

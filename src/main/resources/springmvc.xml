@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+">
 
 
     <context:component-scan base-package="com.community.controller"></context:component-scan>
@@ -15,4 +18,13 @@
         <property name="suffix" value=".html"></property>
     </bean>
 
+    <!--
+        配置Spring 3 Type ConversionService（PropertyEditors的替代方法）
+        添加对@NumberFormat格式化数字字段的支持
+        添加对@DateTimeFormat格式化日期，日历和Joda时间字段的支持，如果Joda Time在类路径上
+        如果JSR-303提供程序在类路径上，则添加对@Valid验证@Controller输入的支持
+        添加支持读写XML，如果JAXB在类路径（使用@RequestBody/@ResponseBody的HTTP消息转换）
+        添加对阅读和编写JSON的支持，如果Jackson位于类路径（与＃5相同的行）
+    -->
+    <mvc:annotation-driven></mvc:annotation-driven>
 </beans>

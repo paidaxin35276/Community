@@ -1,10 +1,31 @@
 package com.community.entity;
 
-public class MeunEntity {
+import java.util.List;
+
+public class MeunEntity extends BaseEntity{
     private Integer id;
     private String name;
     private Integer pid;
     private Integer lv;
+    private List<MeunEntity> list;
+
+    public MeunEntity() {
+    }
+
+    public MeunEntity(String name, Integer pid, Integer lv, List<MeunEntity> list) {
+        this.name = name;
+        this.pid = pid;
+        this.lv = lv;
+        this.list = list;
+    }
+
+    public MeunEntity(Integer id, String name, Integer pid, Integer lv, List<MeunEntity> list) {
+        this.id = id;
+        this.name = name;
+        this.pid = pid;
+        this.lv = lv;
+        this.list = list;
+    }
 
     @Override
     public String toString() {
@@ -13,9 +34,9 @@ public class MeunEntity {
                 ", name='" + name + '\'' +
                 ", pid=" + pid +
                 ", lv=" + lv +
+                ", list=" + list +
                 '}';
     }
-
 
     public Integer getId() {
         return id;
@@ -49,13 +70,11 @@ public class MeunEntity {
         this.lv = lv;
     }
 
-    public MeunEntity() {
+    public List<MeunEntity> getList() {
+        return list;
     }
 
-    public MeunEntity(Integer id, String name, Integer pid, Integer lv) {
-        this.id = id;
-        this.name = name;
-        this.pid = pid;
-        this.lv = lv;
+    public void setList(List<MeunEntity> list) {
+        this.list = list;
     }
 }

@@ -2,7 +2,7 @@ package com.community.entity;
 
 import java.util.Date;
 
-public class Urgent_event_logEntity {
+public class Urgent_event_logEntity extends BaseEntity{
     private Integer id;
 
     private Integer eventId;

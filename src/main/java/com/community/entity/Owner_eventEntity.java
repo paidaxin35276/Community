@@ -2,7 +2,7 @@ package com.community.entity;
 
 import java.util.Date;
 
-public class Owner_eventEntity {
+public class Owner_eventEntity extends BaseEntity{
     private Integer id;
 
     private Integer ownerId;
