@@ -22,11 +22,11 @@
 
 <table class="table  table-hover table-project table-bordered" id="table">
     <div style="margin-top: 20px;">
-        <button data-toggle="modal" data-target="#addrow" type="button" class="btn  btn-success">
+        <button data-toggle="modal" data-target="#addcomplain" type="button" class="btn  btn-success">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加
         </button>
         <!--@*修改按钮*@-->
-        <button data-toggle="modal" data-target="#updaterow" type="button" class="btn btn-warning" onclick="updatebefore();" >
+        <button data-toggle="modal" data-target="#updateacomplain" type="button" class="btn btn-warning" onclick="bb();" >
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>修改
         </button>
         <!--@*删除按钮---无弹出框*@-->
@@ -42,54 +42,36 @@
 </table>
 
 <!-- 增加模态框 -->
-<div class="modal fade" id="addrow" tabindex="-1" role="dialog"
-     aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="addcomplain" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4>{{modal_title}}</h4>
+                <h4>客户投诉</h4>
             </div>
             <div class="modal-body">
-                <form id="form2" class="form-horizontal" >
+                <form id="form1" class="form-horizontal" >
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" >设备名称</label>
+                            <label class="col-sm-3 control-label" >投诉内容</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control"  id="name"  placeholder="请输入设备名称">
+                                <input type="text" class="form-control"  id="content"  placeholder="请输入投诉内容">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" >设备名称状态</label>
+                            <label class="col-sm-3 control-label" >投诉状态</label>
                             <div class="col-sm-9">
                                 <select class="form-control"  id="status">
-                                    <option>--请选择设备名称状态--</option>
-                                    <option>使用</option>
-                                    <option>闲置</option>
-                                    <option>损坏</option>
-                                    <option>维修</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" >设备描述</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="describe"  placeholder="请描述设备">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label" >是否已删除</label>
-                            <div class="col-sm-9">
-                                <select class="form-control"  id="isdelete">
-                                    <option></option>
-                                    <option>是</option>
-                                    <option>否</option>
+                                    <option>--请选择客户投诉名称状态--</option>
+                                    <option>创建、待指派</option>
+                                    <option>已指派、待处理</option>
+                                    <option>已处理、待反馈</option>
+                                    <option>已完成</option>
+                                    <option>反馈未完成、重新指派</option>
                                 </select>
                             </div>
                         </div>
@@ -98,14 +80,72 @@
                 </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default"  data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary" id="subbt">保存</button>
+                    <button type="button" class="btn btn-primary" id="addsubbt">保存</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<!-- 修改模态框 -->
+<div class="modal fade" id="updatecomplain" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>修改客户投诉</h4>
+            </div>
+            <div class="modal-body">
+                <form id="form2" class="form-horizontal" >
+                    <div class="modal-body">
 
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >投诉内容</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control"  id="content1"  placeholder="请输入投诉内容">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >用户反馈</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control"  id="user_feedback"  placeholder="请输入用户反馈">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >评分</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control"  id="user_score"  placeholder="请评分">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >投诉状态</label>
+                            <div class="col-sm-9">
+                                <select class="form-control"  id="status1">
+                                    <option>--请选择客户投诉名称状态--</option>
+                                    <option id="1">创建、待指派</option>
+                                    <option id="2">已指派、待处理</option>
+                                    <option id="3">已处理、待反馈</option>
+                                    <option id="4">已完成</option>
+                                    <option id="5">反馈未完成、重新指派</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"  data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="updatesubbt">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
 
@@ -156,8 +196,9 @@
                 align:'center'
             },{
                 field: 'status',
-                title: '状态',
-                align:'center'
+                title: '投诉状态',
+                align:'center',
+                formatter:testone
             }]
         })
     });
@@ -169,6 +210,20 @@
         clickrow=row;
         console.log(clickrow);
 
+    }
+
+    function testone(object_id,object_dom,rowIndex){
+        if(object_id==1){
+            return "<span>创建、待指派</span>";
+        }else if (object_id==2){
+            return "<span>已指派、待处理</span>";
+        }else if (object_id==3){
+            return "<span>已处理、待反馈</span>";
+        }else if (object_id==4){
+            return "<span>已完成</span>";
+        }else if (object_id==5){
+            return "<span>反馈未完成、重新指派</span>";
+        }
     }
 
     //删除
@@ -186,40 +241,57 @@
         });
     }
 
-    //增加的方法
-    function conversion_stu() {
-        this.modal_title='增加';
-        var _this=this;
-    }
-
-    //判断增加修改模态框
-    function save_student(){
-        var  _this = this;
-        if(_this.modal_title=="增加"){
-            _this.url_action="addEquipment";
-        }
-        else if(_this.modal_title=="修改"){
-            _this.url_action="updateEquipment";
-        }
-        var text=$("#form2").serialize();
+    //增加数据
+    $("#addsubbt").click( function(){
+        var content = $("#content").val();
+        var status = $("#status").val();
         $.ajax({
-            url:_this.url_action,
-            type:'get',
-            data:text,
-            success:function () {
-                $("#student").modal('hide');
-                _this.student_By="";
-                _this.inqire_student();
+            url:'addComplain.action',
+            data:"content="+content+"&status="+status,
+            method:'get',
+            dataType:'JSON',
+            success:function(data){
+                $("table").bootstrapTable("refresh",{
+                    url:'getComplain.action'
+                })
             }
         });
+    });
+
+    //数据绑定
+    function bb(){
+        $("#updatecomplain").modal('show');
+        $("#content1").val(clickrow.content);
+        $("#user_feedback").val(clickrow.user_feedback);
+        $("#user_score").val(clickrow.user_score);
+        var selec = document.getElementById("status1");
+        console.log(selec);
+        for(i = 0;i < selec.length;i++){
+            if(selec[i].id==clickrow.startus){
+                selec[i].selected = true;
+            }
+        }
     }
 
-
-
-
-
-
-
+    //修改
+    $('#updatesubbt').click(function(){
+        clickrow.content = $("#content1").val();
+        clickrow.user_feedback =  $("#user_feedback").val();
+        clickrow.user_score = $("#user_score").val();
+        clickrow.status = $("#status1").val();
+        console.log(clickrow);
+        $.ajax({
+            url:'updateComplain.action',
+            data:clickrow,
+            method:'get',
+            dataType:'JSON',
+            success:function(data){
+                $("table").bootstrapTable("refresh",{
+                    url:'getComplain.action'
+                })
+            }
+        });
+    });
 
 </script>
 </body>

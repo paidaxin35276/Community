@@ -3,16 +3,13 @@ package com.community.controller;
 import com.alibaba.fastjson.JSON;
 import com.community.dao.EquipmentEntityMapper;
 import com.community.entity.EquipmentEntity;
-import com.community.entity.UserEntiy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -71,7 +68,6 @@ public class EquipmentController {
     //修改数据
     @RequestMapping("updateEquipment")
     public void updateEquipment(EquipmentEntity equipmentEntity, HttpServletRequest request,HttpServletResponse response) throws Exception {
-        System.out.println("id="+equipmentEntity.getId());
         response.setCharacterEncoding("utf-8");
         String ename = request.getParameter("ename");
         String status = request.getParameter("status");
@@ -93,7 +89,6 @@ public class EquipmentController {
         equipmentEntity.setEdescribe(edescribe);
         equipmentEntity.setEdit_time(editTime);
         equipmentEntityMapper.updateEquipmentSql1(equipmentEntity);
-        System.out.println(equipmentEntity);
         response.getWriter().write("{\"success\":\"success\"}");
     }
 
