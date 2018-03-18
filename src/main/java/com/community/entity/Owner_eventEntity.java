@@ -5,17 +5,27 @@ import java.util.Date;
 public class Owner_eventEntity extends BaseEntity{
     private Integer id;
 
-    private Integer ownerId;
+    private Integer owner_id;
 
-    private String eventContent;
+    private String event_content;
 
     private Integer type;
 
-    private String createTime;
+    private String create_time;
 
-    private Integer createWho;
+    private Integer create_who;
 
-    private Integer isdelete;
+    private Integer isDelete;
+
+    public Owner_eventEntity(Integer id, Integer owner_id, String event_content, Integer type, String create_time, Integer create_who, Integer isDelete) {
+        this.id = id;
+        this.owner_id = owner_id;
+        this.event_content = event_content;
+        this.type = type;
+        this.create_time = create_time;
+        this.create_who = create_who;
+        this.isDelete = isDelete;
+    }
 
     public Integer getId() {
         return id;
@@ -25,20 +35,20 @@ public class Owner_eventEntity extends BaseEntity{
         this.id = id;
     }
 
-    public Integer getOwnerId() {
-        return ownerId;
+    public Integer getOwner_id() {
+        return owner_id;
     }
 
-    public void setOwnerId(Integer ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner_id(Integer owner_id) {
+        this.owner_id = owner_id;
     }
 
-    public String getEventContent() {
-        return eventContent;
+    public String getEvent_content() {
+        return event_content;
     }
 
-    public void setEventContent(String eventContent) {
-        this.eventContent = eventContent;
+    public void setEvent_content(String event_content) {
+        this.event_content = event_content;
     }
 
     public Integer getType() {
@@ -49,62 +59,43 @@ public class Owner_eventEntity extends BaseEntity{
         this.type = type;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
     }
 
-    public Integer getCreateWho() {
-        return createWho;
+    public Integer getCreate_who() {
+        return create_who;
     }
 
-    public void setCreateWho(Integer createWho) {
-        this.createWho = createWho;
+    public void setCreate_who(Integer create_who) {
+        this.create_who = create_who;
     }
 
-    public Integer getIsdelete() {
-        return isdelete;
+    public Integer getIsDelete() {
+        return isDelete;
     }
 
-    public void setIsdelete(Integer isdelete) {
-        this.isdelete = isdelete;
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
     }
 
     public Owner_eventEntity() {
-    }
-
-    public Owner_eventEntity(Integer ownerId, String eventContent, Integer type, String createTime, Integer createWho, Integer isdelete) {
-        this.ownerId = ownerId;
-        this.eventContent = eventContent;
-        this.type = type;
-        this.createTime = createTime;
-        this.createWho = createWho;
-        this.isdelete = isdelete;
-    }
-
-    public Owner_eventEntity(Integer id, Integer ownerId, String eventContent, Integer type, String createTime, Integer createWho, Integer isdelete) {
-        this.id = id;
-        this.ownerId = ownerId;
-        this.eventContent = eventContent;
-        this.type = type;
-        this.createTime = createTime;
-        this.createWho = createWho;
-        this.isdelete = isdelete;
     }
 
     @Override
     public String toString() {
         return "Owner_eventEntity{" +
                 "id=" + id +
-                ", ownerId=" + ownerId +
-                ", eventContent='" + eventContent + '\'' +
+                ", owner_id=" + owner_id +
+                ", event_content='" + event_content + '\'' +
                 ", type=" + type +
-                ", createTime='" + createTime + '\'' +
-                ", createWho=" + createWho +
-                ", isdelete=" + isdelete +
+                ", create_time='" + create_time + '\'' +
+                ", create_who=" + create_who +
+                ", isDelete=" + isDelete +
                 '}';
     }
 }

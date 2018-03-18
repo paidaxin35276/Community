@@ -13,7 +13,7 @@ public class OwnerEntity extends BaseEntity{
 
     private String mobile;
 
-    private String idcard;
+    private String iDcard;
 
     private String birthday;
 
@@ -23,73 +23,35 @@ public class OwnerEntity extends BaseEntity{
 
     private Integer status;
 
-    private String createTime;
+    private String create_time;
 
-    private Integer createWho;
+    private Integer create_who;
 
-    private String editTime;
+    private String edit_time;
 
-    private Integer editWho;
+    private Integer edit_who;
 
-    private Integer isdelete;
+    private Integer isDelete;
 
     public OwnerEntity() {
     }
 
-    public OwnerEntity(String username, String password, String nickname, String mobile, String idcard, String birthday, String address, Integer type, Integer status, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdelete) {
-        this.username = username;
-        this.password = password;
-        this.nickname = nickname;
-        this.mobile = mobile;
-        this.idcard = idcard;
-        this.birthday = birthday;
-        this.address = address;
-        this.type = type;
-        this.status = status;
-        this.createTime = createTime;
-        this.createWho = createWho;
-        this.editTime = editTime;
-        this.editWho = editWho;
-        this.isdelete = isdelete;
-    }
-
-    public OwnerEntity(Integer id, String username, String password, String nickname, String mobile, String idcard, String birthday, String address, Integer type, Integer status, String createTime, Integer createWho, String editTime, Integer editWho, Integer isdelete) {
+    public OwnerEntity(Integer id, String username, String password, String nickname, String mobile, String iDcard, String birthday, String address, Integer type, Integer status, String create_time, Integer create_who, String edit_time, Integer edit_who, Integer isDelete) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.nickname = nickname;
         this.mobile = mobile;
-        this.idcard = idcard;
+        this.iDcard = iDcard;
         this.birthday = birthday;
         this.address = address;
         this.type = type;
         this.status = status;
-        this.createTime = createTime;
-        this.createWho = createWho;
-        this.editTime = editTime;
-        this.editWho = editWho;
-        this.isdelete = isdelete;
-    }
-
-    @Override
-    public String toString() {
-        return "OwnerEntity{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", idcard='" + idcard + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", address='" + address + '\'' +
-                ", type=" + type +
-                ", status=" + status +
-                ", createTime='" + createTime + '\'' +
-                ", createWho=" + createWho +
-                ", editTime='" + editTime + '\'' +
-                ", editWho=" + editWho +
-                ", isdelete=" + isdelete +
-                '}';
+        this.create_time = create_time;
+        this.create_who = create_who;
+        this.edit_time = edit_time;
+        this.edit_who = edit_who;
+        this.isDelete = isDelete;
     }
 
     public Integer getId() {
@@ -132,12 +94,12 @@ public class OwnerEntity extends BaseEntity{
         this.mobile = mobile;
     }
 
-    public String getIdcard() {
-        return idcard;
+    public String getiDcard() {
+        return iDcard;
     }
 
-    public void setIdcard(String idcard) {
-        this.idcard = idcard;
+    public void setiDcard(String iDcard) {
+        this.iDcard = iDcard;
     }
 
     public String getBirthday() {
@@ -172,43 +134,64 @@ public class OwnerEntity extends BaseEntity{
         this.status = status;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
     }
 
-    public Integer getCreateWho() {
-        return createWho;
+    public Integer getCreate_who() {
+        return create_who;
     }
 
-    public void setCreateWho(Integer createWho) {
-        this.createWho = createWho;
+    public void setCreate_who(Integer create_who) {
+        this.create_who = create_who;
     }
 
-    public String getEditTime() {
-        return editTime;
+    public String getEdit_time() {
+        return edit_time;
     }
 
-    public void setEditTime(String editTime) {
-        this.editTime = editTime;
+    public void setEdit_time(String edit_time) {
+        this.edit_time = edit_time;
     }
 
-    public Integer getEditWho() {
-        return editWho;
+    public Integer getEdit_who() {
+        return edit_who;
     }
 
-    public void setEditWho(Integer editWho) {
-        this.editWho = editWho;
+    public void setEdit_who(Integer edit_who) {
+        this.edit_who = edit_who;
     }
 
-    public Integer getIsdelete() {
-        return isdelete;
+    public Integer getIsDelete() {
+        return isDelete;
     }
 
-    public void setIsdelete(Integer isdelete) {
-        this.isdelete = isdelete;
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    @Override
+    public String toString() {
+        return "OwnerEntity{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", iDcard='" + iDcard + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", address='" + address + '\'' +
+                ", type=" + type +
+                ", status=" + status +
+                ", create_time='" + create_time + '\'' +
+                ", create_who=" + create_who +
+                ", edit_time='" + edit_time + '\'' +
+                ", edit_who=" + edit_who +
+                ", isDelete=" + isDelete +
+                '}';
     }
 }

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>组织机构管理</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-table.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="js/bootstrap-table-zh-CN.js"></script>
+
+</head>
+
+<body>
+<!--<div class="row">
+    <p class="bg-info">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;组织机构管理：定义和修改组织架构、总公司、区域公司、项目。</p>
+</div>-->
+
+<table class="table  table-hover table-project table-bordered" id="table">
+    <div style="margin-top: 20px;">
+        <button data-toggle="modal" data-target="#addrow" type="button" class="btn  btn-success" onclick="addowner_content()">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>添加
+        </button>
+        <!--@*修改按钮*@-->
+        <button data-toggle="modal" data-target="#updaterow" type="button" class="btn btn-warning" onclick="updatebefore();" >
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>修改
+        </button>
+        <!--@*删除按钮---无弹出框*@-->
+        <button id="btnDel" type="button" class="btn  btn-danger" data-toggle="modal" data-target="#DeleteForm" onclick="del()">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>删除
+        </button>
+        <!--@*详情按钮*@-->
+        <button id="btnSel" type="button" class="btn  btn-success" data-target="#DeleteForm" onclick="">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>详情
+        </button>
+    </div>
+</table>
+
+<script>
+
+
+    $(function(){
+        $('#table').bootstrapTable({
+            url:'/owner/lists.action',// 请求后台的URL
+            pagination:true,//是否显示分页
+            pageNumber:1,//初始化加载第一页
+            pageSize:10,//每一页的记录行
+            pageList:[10,20,30,50],//记录行数
+            smartDisplay:true,
+            search:true,//是否显示表格的搜索,此搜索是客户端搜索
+            strictSearch:false,
+            showRefresh:true,//是否显示刷新按钮
+            showToggle:true,
+            onClickRow:onclicks,
+            showPaginationSwitch:true,
+            clickToSelect:true,
+            maintainSelected:true,
+            singleSelect:true,
+            sidePagination:'client',
+            columns: [{
+                checkbox:true,
+            },{
+                field: 'id',
+                title: '事件编号',
+                align:'center'
+            },{
+                field: 'username',
+                title: '业主名',
+                align:'center'
+            },{
+                field: 'password',
+                title: '密码',
+                align:'center'
+            },{
+                field: 'nickname',
+                title: '昵称',
+                align:'center'
+            },{
+                field: 'mobile',
+                title: '手机',
+                align:'center'
+            },{
+                field: 'iDcard',
+                title: '身份证',
+                align:'center'
+            },{
+                field: 'birthday',
+                title: '生日',
+                align:'center'
+            },{
+                field: 'address',
+                title: '地址',
+                align:'center'
+            },{
+                field: 'type',
+                title: '用户类型',
+                align:'center'
+            },{
+                field: 'status',
+                title: '用户状态',
+                align:'center'
+            },{
+                field: 'create_time',
+                title: '记录时间',
+                align:'center'
+            },{
+                field: 'create_who',
+                title: '创建人',
+                align:'center'
+            },{
+                field: 'edit_time',
+                title: '修改时间',
+                align:'center'
+            },{
+                field: 'edit_who',
+                title: '修改人',
+                align:'center'
+            },{
+                field: 'isDelete',
+                title: '是否已经删除',
+                align:'center'
+            }]
+        })
+    });
+
+    var judge=true;
+    var clickrow;
+
+    function onclicks(row,$element) {
+        clickrow=row;
+        console.log(clickrow);
+    }
+
+    function del() {
+        $.ajax({
+            url:'/owner/deletebyId.action',
+            method:'get',
+            data:clickrow,
+            dataType:'JSON',
+            success:function (data) {
+                $('#table').bootstrapTable("refresh",{
+
+                })
+            }
+        });
+
+    }
+
+</script>
+</body>
+</html>
