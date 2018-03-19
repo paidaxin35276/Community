@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
+@RequestMapping(value = "visitor")
 public class VisitorController {
     @Autowired
     private VisitorEntityMapper visitorEntityMapper;
@@ -20,19 +21,19 @@ public class VisitorController {
     public void GetList(HttpServletResponse response)throws IOException{
         response.setCharacterEncoding("utf-8");
         response.setContentType("index/html");
-        List<VisitorEntity> visitor = visitorEntityMapper.visitor();
+        List<VisitorEntity> visitor=visitorEntityMapper.visitor();
         String josn= JSON.toJSONString(visitor);
         System.out.println(josn);
         response.getWriter().write(josn);
-
     }
-    @RequestMapping("del")
+
+   /* @RequestMapping("del")
     public void DeleteById(HttpServletResponse response, HttpServletRequest request)throws IOException{
         response.setCharacterEncoding("utf-8");
         String cid=request.getParameter("id");
         System.out.println(cid);
          int sid = Integer.parseInt(new String(cid.getBytes("ISO-8859-1"),"UTF-8"));
-        visitorEntityMapper.deletebyid(sid);
+        visitorEntityMapper.deletebyId(sid);
         response.getWriter().write("{\"success\":\"success\"}");
-    }
+    }*/
 }

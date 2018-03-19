@@ -13,19 +13,34 @@ public class VisitorEntity extends BaseEntity{
 
     private String image;
 
-    private Integer visitObject;
+    private Integer visit_object;
 
     private String reason;
 
-    private String visitTimeStart;
+    private String visit_time_start;
 
-    private String visitTimeEnd;
+    private String visit_time_end;
 
     private Integer type;
 
-    private String createTime;
+    private String create_time;
 
-    private Integer createWho;
+    private Integer create_who;
+
+    public VisitorEntity(Integer id, String visitorname, String nickname, String mobile, String image, Integer visit_object, String reason, String visit_time_start, String visit_time_end, Integer type, String create_time, Integer create_who) {
+        this.id = id;
+        this.visitorname = visitorname;
+        this.nickname = nickname;
+        this.mobile = mobile;
+        this.image = image;
+        this.visit_object = visit_object;
+        this.reason = reason;
+        this.visit_time_start = visit_time_start;
+        this.visit_time_end = visit_time_end;
+        this.type = type;
+        this.create_time = create_time;
+        this.create_who = create_who;
+    }
 
     public Integer getId() {
         return id;
@@ -67,12 +82,12 @@ public class VisitorEntity extends BaseEntity{
         this.image = image;
     }
 
-    public Integer getVisitObject() {
-        return visitObject;
+    public Integer getVisit_object() {
+        return visit_object;
     }
 
-    public void setVisitObject(Integer visitObject) {
-        this.visitObject = visitObject;
+    public void setVisit_object(Integer visit_object) {
+        this.visit_object = visit_object;
     }
 
     public String getReason() {
@@ -83,20 +98,20 @@ public class VisitorEntity extends BaseEntity{
         this.reason = reason;
     }
 
-    public String getVisitTimeStart() {
-        return visitTimeStart;
+    public String getVisit_time_start() {
+        return visit_time_start;
     }
 
-    public void setVisitTimeStart(String visitTimeStart) {
-        this.visitTimeStart = visitTimeStart;
+    public void setVisit_time_start(String visit_time_start) {
+        this.visit_time_start = visit_time_start;
     }
 
-    public String getVisitTimeEnd() {
-        return visitTimeEnd;
+    public String getVisit_time_end() {
+        return visit_time_end;
     }
 
-    public void setVisitTimeEnd(String visitTimeEnd) {
-        this.visitTimeEnd = visitTimeEnd;
+    public void setVisit_time_end(String visit_time_end) {
+        this.visit_time_end = visit_time_end;
     }
 
     public Integer getType() {
@@ -107,52 +122,24 @@ public class VisitorEntity extends BaseEntity{
         this.type = type;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
     }
 
-    public Integer getCreateWho() {
-        return createWho;
+    public Integer getCreate_who() {
+        return create_who;
     }
 
-    public void setCreateWho(Integer createWho) {
-        this.createWho = createWho;
+    public void setCreate_who(Integer create_who) {
+        this.create_who = create_who;
     }
 
     public VisitorEntity() {
-    }
 
-    public VisitorEntity(String visitorname, String nickname, String mobile, String image, Integer visitObject, String reason, String visitTimeStart, String visitTimeEnd, Integer type, String createTime, Integer createWho) {
-        this.visitorname = visitorname;
-        this.nickname = nickname;
-        this.mobile = mobile;
-        this.image = image;
-        this.visitObject = visitObject;
-        this.reason = reason;
-        this.visitTimeStart = visitTimeStart;
-        this.visitTimeEnd = visitTimeEnd;
-        this.type = type;
-        this.createTime = createTime;
-        this.createWho = createWho;
-    }
-
-    public VisitorEntity(Integer id, String visitorname, String nickname, String mobile, String image, Integer visitObject, String reason, String visitTimeStart, String visitTimeEnd, Integer type, String createTime, Integer createWho) {
-        this.id = id;
-        this.visitorname = visitorname;
-        this.nickname = nickname;
-        this.mobile = mobile;
-        this.image = image;
-        this.visitObject = visitObject;
-        this.reason = reason;
-        this.visitTimeStart = visitTimeStart;
-        this.visitTimeEnd = visitTimeEnd;
-        this.type = type;
-        this.createTime = createTime;
-        this.createWho = createWho;
     }
 
     @Override
@@ -163,13 +150,13 @@ public class VisitorEntity extends BaseEntity{
                 ", nickname='" + nickname + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", image='" + image + '\'' +
-                ", visitObject=" + visitObject +
+                ", visit_object=" + visit_object +
                 ", reason='" + reason + '\'' +
-                ", visitTimeStart='" + visitTimeStart + '\'' +
-                ", visitTimeEnd='" + visitTimeEnd + '\'' +
+                ", visit_time_start='" + visit_time_start + '\'' +
+                ", visit_time_end='" + visit_time_end + '\'' +
                 ", type=" + type +
-                ", createTime='" + createTime + '\'' +
-                ", createWho=" + createWho +
+                ", create_time='" + create_time + '\'' +
+                ", create_who=" + create_who +
                 '}';
     }
 }

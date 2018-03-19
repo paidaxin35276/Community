@@ -11,6 +11,6 @@ public interface VisitorEntityMapper {
     @SelectProvider(type = VisitorBuilUtil.class,method = "GetList")
     List<VisitorEntity> visitor();
     @DeleteProvider(type =VisitorBuilUtil.class,method ="DeleteById" )
-    int deletebyid(Integer id);
+    void deletebyId(Integer id);
 
 }

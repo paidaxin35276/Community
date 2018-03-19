@@ -10,7 +10,6 @@ public class OwnerBuilUtil {
 
   /*public String Del(Integer id){
       return "delete owner where id="+id;
-
-
   }*/
+
 }

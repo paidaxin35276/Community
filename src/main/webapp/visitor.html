@@ -31,7 +31,7 @@
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>修改
         </button>
         <!--@*删除按钮---无弹出框*@-->
-        <button id="btnDel" type="button" class="btn  btn-danger" data-toggle="modal" data-target="#DeleteForm" onclick="del()">
+        <button id="btnDel" type="button" class="btn  btn-danger" data-toggle="modal" data-target="#DeleteForm" onclick="dels()">
             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>删除
         </button>
         <!--@*详情按钮*@-->
@@ -44,7 +44,7 @@
 <script>
     $(function(){
         $('table').bootstrapTable({
-            url:'/byselect.action',
+            url:'/visitor/byselect.action',
             pagination:true,//是否显示分页
             pageNumber:1,//初始化加载第一页
             pageSize:10,//每一页的记录行
@@ -54,6 +54,7 @@
             strictSearch:false,
             showRefresh:true,//是否显示刷新按钮
             showToggle:true,
+            onClickRow:clickrows,
             showPaginationSwitch:true,
             clickToSelect:true,
             maintainSelected:true,
@@ -112,6 +113,31 @@
             }]
         })
     });
+    var judge=true;
+    var clickrow;
+    function clickrows() {
+         clickrow=row;
+         console.log(clickrow);
+    }
+
+ /*  function dels() {
+        $.ajax({
+           url:'/visitor/del.action',
+            data:clickrow,
+            method:'get',
+            dataType:'JSON',
+             success:function (data) {
+               $('#table').bootstrapTable({
+
+               })
+             }
+        });
+   }*/
+
+
+
+
+
 
 </script>
 </body>
