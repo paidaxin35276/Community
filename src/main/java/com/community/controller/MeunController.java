@@ -40,22 +40,8 @@ public class MeunController {
         String str = JSON.toJSONString(list);
         //因为一旦主菜单中没有子菜单 那么json传过去的数据就有个字段是 list:[]
         //为了避免给前台造成不必要的麻烦 在后台直接把这个list:[]给过滤掉！！！！！
-        String jsonString = str.toString().replace(",\"list\":[]", "");
-        System.out.println(jsonString);
-        response.getWriter().write(jsonString);
+        //String jsonString = str.toString().replace(",\"list\":[]", "");
+        response.getWriter().write(str);
     }
-
-//    @ResponseBody
-//    @RequestMapping(value = "getTwo",method = RequestMethod.POST)
-//    public List<MeunEntity> getMeunTwo() throws IOException {
-//        Integer id = 1;
-//        String _id = request.getParameter("id");
-//        if(null!=_id){
-//            id = Integer.parseInt(_id);
-//        }
-//        List<MeunEntity> list = menuEntityMapper.getTwo(id);
-//        String jsonString = JSON.toJSONString(list);
-//        return list;
-//    }
 
 }
