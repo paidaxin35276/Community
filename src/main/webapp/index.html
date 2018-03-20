@@ -15,11 +15,10 @@
     <script src="js/bootstrap-table-zh-CN.js"></script>
 </head>
 <style>
-    a {
-        text-decoration: none;
-        cursor: pointer;
+    a{
+        text-decoration:none;
+        cursor:pointer;
     }
-
     .text {
         line-height: 100px;
     }
@@ -48,82 +47,45 @@
         </div>
     </div>
     <!-- 标签页 -->
-    <div class="col-sm-10 co-md-10" style="background: #f6f7f7; height: 700px;">
-        <ul id="myTab" class="nav nav-tabs">
+    <div class="col-sm-10 co-md-10" style="background: #f6f7f7; height: 700px;" id="body_tab">
 
-        </ul>
-
-        <div id="myTabContent" class="tab-content">
-
-        </div>
     </div>
 </div>
 </body>
 <script>
     function remove_tabs(tabs_id) {
-        var _a = $("#" + tabs_id).parent();
+        var _a = $("#"+tabs_id).parent();
         var _li = _a.parent();
         var _ui = _li.parent();
         var _div = _ui.parent();
         _div.remove();
     }
-
     function openMyTab(Meun_date) {
-        var tab_length = $('#myTab').children().length;
+        console.log(Meun_date);
         var title_url = Meun_date.split(",");
-        var current_flush = true;
-        //var array_a = $("#myTab ul li");
-        var array_a;
-        array_a = document.getElementById('myTab').getElementsByTagName('a');
-        console.log("length = "+array_a.length+"___open"+current_flush);
-        if (array_a.length == 0) {
-            addTabs(title_url);
-        } else {
+        if(title_url[2]=="*.html"){
 
-            for (i = 0; i < array_a.length; i++) {
-                alert(array_a[i].innerHTML.split("<s")[i]);
-                if (array_a[i].innerHTML.split("<s")[i] == title_url[1]) {
-                    current_flush = false;
-                    console.log(array_a[i].innerHTML.split("<s")[i]+"______________"+title_url[1]);
-                    console.log("end"+current_flush);
-                }
-            }
-            if(current_flush==true){
-                addTabs(title_url);
-            }
+        }else{
+            var html = "<div >" +
+                "<ul class=\"nav nav-tabs\" id=\"tab_content\" role=\"tablist\">\n" +
+                "                <li role=\"presentation\" class=\"active\">\n" +
+                "                    <a href=\"#home"+title_url[0]+"\" aria-controls=\"home\" role=\"button\" data-toggle=\"tab\">"+title_url[1]+"\n" +
+                "                        <span class=\"glyphicon glyphicon-remove tab_close\" id=\""+title_url[0]+"\" onclick='remove_tabs(this.id)'></span>\n" +
+                "                    </a>\n" +
+                "                </li>\n" +
+                "            </ul>\n" +
+                "            <div class=\"tab-content\" id=\"panel_content\">\n" +
+                "                <div role=\"tabpanel\" class=\"tab-pane active\" id=\"home"+title_url[0]+"\">\n" +
+                "                    <iframe src=\""+title_url[2]+"\" style=\"height: 550px; width: 99%\"></iframe>\n" +
+                "                </div>\n" +
+                "            </div>" +
+                "</div>";
+            $("#body_tab").append(html);
         }
-    }
-    function addTabs(title_url){
-        if (title_url[2] == "*.html") {
 
-        } else {
-            var tab_div_date;
-            if (tab_length = 0) {
-                tab_div_date =
-                    "<div class=\"tab-pane fade in active\" id=\"home" + title_url[0] + "\">" +
-                    "   <iframe src=\"" + title_url[2] + "\" style=\"height: 550px; width: 99%\">" +
-                    "   </iframe>" +
-                    "</div>";
-            } else {
-                tab_div_date =
-                    "<div class=\"tab-pane fade\" id=\"home" + title_url[0] + "\">" +
-                    "   <iframe src=\"" + title_url[2] + "\" style=\"height: 550px; width: 99%\">" +
-                    "   </iframe>" +
-                    "</div>";
-            }
-            var tab_ui_date =
-                "<li class=\"active\">" +
-                "   <a href=\"#home" + title_url[0] + "\"  data-toggle=\"tab\">" + title_url[1] + "<span class=\"glyphicon glyphicon-remove tab_close\" id=\"" + title_url[0] + "\" onclick='remove_tabs(this.id)'>" +
-                "       </span>" +
-                "   </a>" +
-                "</li>";
-            $("#myTab").append(tab_ui_date);
-            $("#myTabContent").append(tab_div_date);
-        }
     }
 
     $(function () {
-
         $.ajax({
             url: "meun/getMeun.action",
             dataType: "JSON",
@@ -135,7 +97,7 @@
                     if (null != v.list) {
                         html += "<div id='collapse" + v.id + "' class='panel-collapse collapse'>";
                         $.each(v.list, function (k, v) {
-                            html += "<div  class='panel-body' style='margin-left: 40px'><a onclick=openMyTab(\"" + v.id + "," + v.name + "," + v.html_url + "\")>" + v.name + "</a></div>";
+                            html += "<div  class='panel-body' style='margin-left: 40px'><a onclick=openMyTab(\""+v.id+","+v.name+","+v.html_url+"\")>" + v.name + "</a></div>";
                         });
                         html += "</div></div>"
                     }
